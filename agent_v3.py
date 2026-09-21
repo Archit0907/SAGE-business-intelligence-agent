@@ -6,11 +6,21 @@ import time
 
 
 # ============================================================
-# SAGE V3.1
+# SAGE V3.3
 # MULTI-STAGE BUSINESS INTELLIGENCE ENGINE
 # ============================================================
 
 client = OpenAI(timeout=300.0)
+
+# ============================================================
+# REAL-TIME TELEMETRY
+# ============================================================
+
+def emit_event(event_name, message):
+    """Emit a machine-readable progress event for the Streamlit UI."""
+    safe_message = str(message).replace("\r", " ").replace("\n", " ").strip()
+    print(f"SAGE_EVENT|{event_name}|{safe_message}", flush=True)
+
 
 
 # ============================================================
@@ -47,6 +57,15 @@ def clean_json(text):
 def run_stage(stage_name, prompt, use_web=False):
     """Run one SAGE research stage."""
 
+    stage_labels = {
+        "STAGE 1 - RESEARCH DESIGN": "Research Design",
+        "STAGE 2 - WEB RESEARCH": "Web Research",
+        "STAGE 3 - BUSINESS INTELLIGENCE ANALYSIS": "Business Intelligence",
+        "STAGE 4 - STRATEGIC SYNTHESIS": "Strategic Synthesis",
+    }
+
+    emit_event("STAGE_STARTED", stage_labels.get(stage_name, stage_name))
+
     print("\n" + "=" * 70)
     print(stage_name)
     print("=" * 70)
@@ -74,6 +93,8 @@ def run_stage(stage_name, prompt, use_web=False):
         return output
 
     except Exception as error:
+
+        emit_event("ERROR", f"{stage_name} failed")
 
         print(
             f"\n[ERROR] {stage_name} failed: {error}"
@@ -176,7 +197,7 @@ start_time = datetime.now()
 
 print("\n")
 print("=" * 70)
-print("                    SAGE V3.1")
+print("                    SAGE V3.2")
 print("       AUTONOMOUS BUSINESS INTELLIGENCE ENGINE")
 print("=" * 70)
 
@@ -247,6 +268,13 @@ research_plan = parse_json(
     research_plan_raw,
     "Research Design"
 )
+
+research_questions = safe_list(research_plan.get("research_questions"))
+if research_questions:
+    emit_event(
+        "RESEARCH_QUESTIONS",
+        f"{len(research_questions)} research questions identified"
+    )
 
 
 # ============================================================
@@ -428,6 +456,22 @@ research_data = parse_json(
     "Web Research"
 )
 
+research_sources = safe_list(research_data.get("sources"))
+for source_item in research_sources[:8]:
+    if isinstance(source_item, dict):
+        source_name = (
+            source_item.get("source")
+            or source_item.get("organization")
+            or source_item.get("url")
+        )
+    else:
+        source_name = source_item
+
+    if source_name:
+        emit_event("SOURCE_FOUND", str(source_name))
+
+emit_event("EVIDENCE_COMPLETE", "Evidence collection completed")
+
 
 # ============================================================
 # STAGE 3
@@ -453,7 +497,9 @@ RESEARCH EVIDENCE:
 
 Your task is NOT to repeat the evidence.
 
-Transform the evidence into concise business analysis.
+Transform the evidence into concise business analysis suitable for an executive dashboard.
+
+The underlying research can be detailed, but the output fields shown in the main dashboard must be easy to scan. Keep supporting detail in the research_evidence data rather than expanding dashboard-facing text.
 
 Separate:
 
@@ -484,12 +530,25 @@ Each finding should have a clear reason for being included.
 
 Aim for approximately:
 
-- 5-8 market findings
+- 4-5 market findings
 - 3-5 customer segments
 - 4-6 competitor findings
 - 4-6 trends
 - 3-5 opportunities
 - 3-5 risks
+
+MARKET ANALYSIS DISPLAY RULES:
+The market overview is a dashboard section, not a long-form report.
+
+For each market finding:
+- "finding": one strong, specific headline or sentence, ideally 8-14 words.
+- "evidence": 1 concise sentence containing the most relevant supporting fact, statistic, or observed evidence. Maximum about 30 words.
+- "implication": 1 concise sentence explaining why it matters to the business decision. Maximum about 25 words.
+- Do not use multiple paragraphs.
+- Do not repeat the same point across findings.
+- Prefer concrete market signals, demand patterns, structural characteristics, or developments.
+- If a statistic is available, prioritize the statistic over generic explanation.
+- Keep the full underlying evidence in the research evidence section; the market_analysis output should be executive-friendly.
 
 Return ONLY valid JSON.
 
@@ -579,6 +638,11 @@ analysis_raw = run_stage(
 analysis_data = parse_json(
     analysis_raw,
     "Business Intelligence Analysis"
+)
+
+emit_event(
+    "ANALYSIS_COMPLETE",
+    "Business intelligence analysis completed"
 )
 
 
@@ -737,6 +801,11 @@ strategy_data = parse_json(
     "Strategic Synthesis"
 )
 
+emit_event(
+    "SYNTHESIS_COMPLETE",
+    "Strategic synthesis completed"
+)
+
 
 # ============================================================
 # NORMALIZE DATA
@@ -799,7 +868,7 @@ recommended_actions = safe_list(
 final_output = {
 
     "metadata": {
-        "version": "SAGE V3.1",
+        "version": "SAGE V3.3",
         "generated": datetime.now().strftime(
             "%Y-%m-%d %H:%M:%S"
         ),
@@ -1017,7 +1086,7 @@ duration = int(
 
 print("\n")
 print("=" * 70)
-print("              SAGE V3.1 RESEARCH COMPLETE")
+print("              SAGE V3.3 RESEARCH COMPLETE")
 print("=" * 70)
 
 print(f"\nResearch duration: {duration} seconds")
@@ -1030,4 +1099,4 @@ print("[OK] Strategic synthesis")
 print("\nStructured intelligence saved as:")
 print("sage_research_data.json")
 
-print("\nSAGE V3.1 is ready.")
+print("\nSAGE V3.3 is ready.")

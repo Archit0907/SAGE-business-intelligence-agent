@@ -728,6 +728,71 @@ a.sg-src-link:hover{ text-decoration:underline; }
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
 }
+
+.sg-live-telemetry{
+  margin-top:16px;
+  padding:14px 16px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.045);
+  border-radius:14px;
+}
+.sg-live-telemetry-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.sg-live-telemetry-kicker{
+  font-family:var(--sg-mono);
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.48);
+  font-weight:800;
+}
+.sg-live-telemetry-now{
+  font-size:13px;
+  line-height:1.45;
+  color:rgba(255,255,255,.9);
+  font-weight:600;
+}
+.sg-live-telemetry-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:8px;
+}
+.sg-live-stat{
+  padding:9px 10px;
+  border-radius:10px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.08);
+}
+.sg-live-stat-label{
+  font-family:var(--sg-mono);
+  font-size:9px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.42);
+}
+.sg-live-stat-value{
+  margin-top:3px;
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+}
+.sg-live-source{
+  margin-top:9px;
+  font-size:11px;
+  color:rgba(255,255,255,.56);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+@media (max-width: 720px){
+  .sg-live-telemetry-grid{grid-template-columns:1fr 1fr;}
+}
+
 </style>
 """
 
@@ -1131,8 +1196,10 @@ def render_hero():
     """
 
 
-def render_live_card(stage, message):
+def render_live_card(stage, message, telemetry=None):
+    telemetry = telemetry or {}
     all_done = stage > len(STAGES)
+
     items = []
     for i, (num, title, sub) in enumerate(STAGES, start=1):
         if all_done or i < stage:
@@ -1141,12 +1208,15 @@ def render_live_card(stage, message):
             state, label = "active", "● ACTIVE"
         else:
             state, label = "", "QUEUED"
+
         items.append(
             f'<div class="sg-stage {state}"><div class="sg-stage-state">{label}</div>'
             f'<div class="sg-stage-num">{num}</div><div class="sg-stage-title">{esc(title)}</div>'
             f'<div class="sg-stage-sub">{esc(sub)}</div></div>'
         )
+
     stages_html = "".join(items)
+
     if all_done:
         title_html = "Research complete"
         status_html = '<span class="sg-status">✓ COMPLETE</span>'
@@ -1155,6 +1225,42 @@ def render_live_card(stage, message):
         title_html = 'Researching<span class="sg-ellipsis"></span>'
         status_html = '<span class="sg-status"><i class="sg-pulse"></i>RESEARCHING</span>'
         track_html = '<div class="sg-track"><span></span></div>'
+
+    question_count = telemetry.get("questions")
+    source_count = telemetry.get("sources", 0)
+    last_source = telemetry.get("last_source", "")
+    current_event = telemetry.get("current_event") or message
+
+    stat_questions = (
+        str(question_count)
+        if question_count is not None
+        else "—"
+    )
+
+    telemetry_html = f"""
+      <div class="sg-live-telemetry">
+        <div class="sg-live-telemetry-head">
+          <div class="sg-live-telemetry-kicker">LIVE RESEARCH SIGNALS</div>
+          <div class="sg-live-telemetry-now">{esc(current_event)}</div>
+        </div>
+        <div class="sg-live-telemetry-grid">
+          <div class="sg-live-stat">
+            <div class="sg-live-stat-label">Questions</div>
+            <div class="sg-live-stat-value">{esc(stat_questions)}</div>
+          </div>
+          <div class="sg-live-stat">
+            <div class="sg-live-stat-label">Sources found</div>
+            <div class="sg-live-stat-value">{esc(source_count)}</div>
+          </div>
+          <div class="sg-live-stat">
+            <div class="sg-live-stat-label">Stage</div>
+            <div class="sg-live-stat-value">{esc(str(min(stage, len(STAGES))))}/4</div>
+          </div>
+        </div>
+        {f'<div class="sg-live-source">Latest source: {esc(last_source)}</div>' if last_source else ''}
+      </div>
+    """
+
     return f"""
     <div class="sg-live">
       <div class="sg-orb a"></div><div class="sg-orb b"></div>
@@ -1167,14 +1273,14 @@ def render_live_card(stage, message):
       <div class="sg-live-msg">{esc(message)}</div>
       <div class="sg-stages">{stages_html}</div>
       {track_html}
+      {telemetry_html}
     </div>
     """
 
 
-def show_live(slot, stage, message):
+def show_live(slot, stage, message, telemetry=None):
     with slot.container():
-        st.html(render_live_card(stage, message))
-
+        st.html(render_live_card(stage, message, telemetry))
 
 def render_metric_card(icon, label, value, plain=False):
     text = to_text(value)
@@ -1786,7 +1892,7 @@ REPORT_SECTIONS = [
 # ============================================================
 
 def run_sage_research(problem, market, decision, live_slot):
-    """Runs agent_v3.py exactly like before. Returns (data, error_message, log_tail)."""
+    """Run agent_v3.py and surface real SAGE_EVENT telemetry in the live panel."""
     if not AGENT_PATH.exists():
         return None, "agent_v3.py was not found next to app.py.", ""
 
@@ -1797,11 +1903,37 @@ def run_sage_research(problem, market, decision, live_slot):
             pass
 
     stage = 1
-    show_live(live_slot, stage, STAGE_MESSAGES[1])
+    telemetry = {
+        "questions": None,
+        "sources": 0,
+        "last_source": "",
+        "current_event": STAGE_MESSAGES[1],
+    }
+
+    show_live(
+        live_slot,
+        stage,
+        STAGE_MESSAGES[1],
+        telemetry,
+    )
 
     payload = f"{problem}\n{market}\n{decision}\n"
     log = []
     process = None
+
+    stage_names = {
+        "Research Design": 1,
+        "Web Research": 2,
+        "Business Intelligence": 3,
+        "Strategic Synthesis": 4,
+    }
+
+    event_messages = {
+        "EVIDENCE_COMPLETE": "Evidence collection completed.",
+        "ANALYSIS_COMPLETE": "Business intelligence analysis completed.",
+        "SYNTHESIS_COMPLETE": "Strategic synthesis completed.",
+        "RESEARCH_COMPLETE": "Research completed successfully.",
+    }
 
     try:
         process = subprocess.Popen(
@@ -1828,8 +1960,84 @@ def run_sage_research(problem, market, decision, live_slot):
             if len(log) > 500:
                 del log[:100]
 
+            # ------------------------------------------------
+            # REAL SAGE TELEMETRY
+            # ------------------------------------------------
+            if line.startswith("SAGE_EVENT|"):
+                parts = line.split("|", 2)
+                if len(parts) == 3:
+                    event_name = parts[1].strip()
+                    event_message = parts[2].strip()
+
+                    if event_name == "STAGE_STARTED":
+                        detected = stage_names.get(event_message, stage)
+                        if detected >= stage:
+                            stage = detected
+                        telemetry["current_event"] = event_message
+                        show_live(
+                            live_slot,
+                            stage,
+                            STAGE_MESSAGES.get(stage, event_message),
+                            telemetry,
+                        )
+
+                    elif event_name == "RESEARCH_QUESTIONS":
+                        match = re.search(r"(\d+)", event_message)
+                        if match:
+                            telemetry["questions"] = int(match.group(1))
+                        telemetry["current_event"] = event_message
+                        show_live(
+                            live_slot,
+                            stage,
+                            "Research questions identified. Building the evidence plan...",
+                            telemetry,
+                        )
+
+                    elif event_name == "SOURCE_FOUND":
+                        telemetry["sources"] += 1
+                        telemetry["last_source"] = event_message
+                        telemetry["current_event"] = "Source found"
+                        show_live(
+                            live_slot,
+                            stage,
+                            "Gathering live market evidence...",
+                            telemetry,
+                        )
+
+                    elif event_name in event_messages:
+                        telemetry["current_event"] = event_messages[event_name]
+
+                        if event_name == "EVIDENCE_COMPLETE":
+                            stage = max(stage, 2)
+                        elif event_name == "ANALYSIS_COMPLETE":
+                            stage = max(stage, 3)
+                        elif event_name == "SYNTHESIS_COMPLETE":
+                            stage = max(stage, 4)
+
+                        show_live(
+                            live_slot,
+                            stage,
+                            event_messages[event_name],
+                            telemetry,
+                        )
+
+                    elif event_name == "ERROR":
+                        telemetry["current_event"] = event_message
+                        show_live(
+                            live_slot,
+                            stage,
+                            "SAGE encountered an error. Reviewing the research run...",
+                            telemetry,
+                        )
+
+                continue
+
+            # ------------------------------------------------
+            # BACKWARD-COMPATIBLE FALLBACK
+            # ------------------------------------------------
             lower = line.lower()
             detected = 0
+
             if "strategic synthesis" in lower or "stage 4" in lower:
                 detected = 4
             elif "business intelligence" in lower or "stage 3" in lower:
@@ -1841,12 +2049,19 @@ def run_sage_research(problem, market, decision, live_slot):
 
             if detected > stage:
                 stage = detected
-                show_live(live_slot, stage, STAGE_MESSAGES[stage])
+                telemetry["current_event"] = STAGE_MESSAGES[stage]
+                show_live(
+                    live_slot,
+                    stage,
+                    STAGE_MESSAGES[stage],
+                    telemetry,
+                )
 
         try:
             process.stdout.close()
         except Exception:
             pass
+
         process.wait()
 
         if process.returncode != 0:
@@ -1864,14 +2079,23 @@ def run_sage_research(problem, market, decision, live_slot):
         with open(REPORT_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        show_live(live_slot, len(STAGES) + 1, "Research complete. Building your intelligence report...")
+        telemetry["current_event"] = "Research complete. Building your intelligence report..."
+        show_live(
+            live_slot,
+            len(STAGES) + 1,
+            "Research complete. Building your intelligence report...",
+            telemetry,
+        )
         time.sleep(0.8)
+
         return data, None, ""
 
     except json.JSONDecodeError as e:
         return None, f"The research report could not be read (invalid JSON): {e}", "\n".join(log)[-5000:]
+
     except Exception as e:
         return None, f"SAGE could not complete the research: {e}", "\n".join(log)[-5000:]
+
     finally:
         try:
             if process is not None and process.poll() is None:
