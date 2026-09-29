@@ -1,0 +1,1784 @@
+{
+  "saved_at": "2026-09-26 19:35:33",
+  "brief": {
+    "problem": "to plan an execute a great indian wedding in dehradun",
+    "market": "dehradhun",
+    "decision": "to have a great experience for both bride and groom side"
+  },
+  "research": {
+    "metadata": {
+      "version": "SAGE V3.3",
+      "generated": "2026-09-26 19:35:32",
+      "duration_seconds": 211,
+      "business_problem": "to plan an execute a great indian wedding in dehradun",
+      "target_market": "dehradhun",
+      "business_decision": "to have a great experience for both bride and groom side"
+    },
+    "executive_summary": "Plan the wedding as a centralized, hospitality-led experience rather than a series of disconnected functions. Prioritize a venue with dependable indoor and outdoor options, sufficient accommodation, strong accessibility, and clear commercial terms. Establish one joint decision process for both families, assign a dedicated guest-experience lead, and lock down weather, food-safety, permissions, and vendor-contingency controls before committing major spend.",
+    "key_findings": [
+      {
+        "finding": "Dehradun offers multiple venue formats, from luxury resorts and large destination-style properties to mid-market hotels and independent venues.",
+        "why_it_matters": "The right choice depends less on brand alone and more on guest count, room requirements, function separation, family expectations, and budget.",
+        "evidence_strength": "Strong for market structure; pricing and availability remain unverified."
+      },
+      {
+        "finding": "The city is accessible for local and out-of-town guests, but guest movement and accommodation still require deliberate coordination.",
+        "why_it_matters": "Arrival, room allocation, transfers, and venue movement will materially shape the experience for the groom's and bride's families.",
+        "evidence_strength": "Strong for accessibility and operational need."
+      },
+      {
+        "finding": "Monsoon conditions create significant execution risk for outdoor ceremonies and guest movement.",
+        "why_it_matters": "A visually attractive outdoor plan can fail through rain, delays, damaged production, or guest discomfort unless an equivalent indoor plan is ready.",
+        "evidence_strength": "Strong."
+      },
+      {
+        "finding": "Published wedding prices are incomplete and difficult to compare.",
+        "why_it_matters": "Quoted venue or planner prices may exclude taxes, minimum spends, overtime, generators, rain cover, transport, corkage, and guest-count changes.",
+        "evidence_strength": "Strong procurement inference."
+      },
+      {
+        "finding": "The wedding involves several stakeholder groups with different priorities, including both families, elderly guests, children, and destination attendees.",
+        "why_it_matters": "Without agreed decision rights and a shared brief, conflicting instructions can affect rituals, food, invitations, vendor performance, and budget control.",
+        "evidence_strength": "Moderate to strong operational inference."
+      },
+      {
+        "finding": "Food-safety compliance, sound restrictions, accessibility, and emergency readiness are practical delivery requirements, not administrative details.",
+        "why_it_matters": "Failures in these areas can cause health incidents, cancelled entertainment, reputational damage, or serious discomfort for vulnerable guests.",
+        "evidence_strength": "Strong for compliance and weather; venue-specific readiness requires validation."
+      }
+    ],
+    "market_overview": {
+      "market_characteristics": [
+        {
+          "finding": "Dehradun serves distinct luxury, hotel-banquet, mid-market and independent-venue wedding segments.",
+          "evidence": "Published capacities range from 300 guests at Fairfield to above 1,000 at Vasdaa Grand, with multiple hotel and lawn formats.",
+          "implication": "Venue selection can be matched to guest scale, service expectations and desired accommodation model.",
+          "evidence_strength": "Strong for observed market structure; pricing and availability remain unverified."
+        },
+        {
+          "finding": "The market combines accessible city infrastructure with destination-wedding potential.",
+          "evidence": "Dehradun connects by air, rail and road and serves as a gateway to Mussoorie, Haridwar and Rishikesh.",
+          "implication": "The wedding can attract out-of-town guests without requiring a fully remote destination format.",
+          "evidence_strength": "Strong for accessibility; destination demand is not quantified."
+        },
+        {
+          "finding": "Venue economics are highly seasonal because monsoon weather increases outdoor execution risk.",
+          "evidence": "Mean rainfall reaches 621.6 mm in July and 714.9 mm in August, versus 5.2 mm in November.",
+          "implication": "Indoor capacity and dependable rain alternatives materially affect delivered value and event reliability.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "finding": "Published supplier pricing is fragmented and rarely represents a complete wedding cost.",
+          "evidence": "Planner starting prices range from approximately INR 3 lakh to INR 10 lakh, excluding many venue and production costs.",
+          "implication": "Headline prices cannot support reliable comparisons between venue, planner or wedding formats.",
+          "evidence_strength": "Moderate to strong."
+        },
+        {
+          "finding": "National wedding-market estimates indicate scale but cannot size Dehradun demand.",
+          "evidence": "A SEBI-hosted document cites approximately 8 million Indian weddings annually and INR 8,000-16,000 billion in spending.",
+          "implication": "The broader market supports supplier depth, but local budgeting must rely on the actual guest list and quotations.",
+          "evidence_strength": "Moderate nationally; weak for Dehradun."
+        }
+      ],
+      "demand_patterns": [
+        {
+          "pattern": "Mixed local and destination guest lists increase demand for coordinated hospitality services.",
+          "evidence": "Planners market arrival coordination, accommodation, transfers and guest movement alongside venue and event management.",
+          "evidence_strength": "Strong for operational need; willingness to pay is unverified."
+        },
+        {
+          "pattern": "Families increasingly value centralized functions that reduce travel and coordination friction.",
+          "evidence": "Hotel resorts combine rooms, event spaces, catering and service teams within one property.",
+          "evidence_strength": "Moderate."
+        },
+        {
+          "pattern": "Customers are likely to prioritize food, comfort and ceremony execution over uniform premium styling.",
+          "evidence": "Supplier positioning shows tiered service levels, while family requirements emphasize food quality, hospitality and traditional ceremonies.",
+          "evidence_strength": "Moderate; direct customer elasticity data is unavailable."
+        },
+        {
+          "pattern": "Accessibility and elderly support are important unmet requirements in venue buying.",
+          "evidence": "Most reviewed venue pages publish capacities but provide limited information on accessible rooms, washrooms, seating and medical support.",
+          "evidence_strength": "Strong as a planning requirement; venue-specific evidence is limited."
+        },
+        {
+          "pattern": "Two-family decision complexity creates demand for clear governance and coordinated communication.",
+          "evidence": "Multiple rituals, guest lists, budgets and vendor instructions typically involve decision-makers from both families.",
+          "evidence_strength": "Moderate to strong operational inference."
+        }
+      ],
+      "important_developments": [
+        {
+          "development": "Local suppliers are expanding from single services toward integrated wedding-experience models.",
+          "evidence": "Planners increasingly combine venue selection, decor, catering coordination, hospitality, transfers and on-site execution.",
+          "evidence_strength": "Moderate."
+        },
+        {
+          "development": "Premium venues are investing in multi-format spaces for segregated wedding functions.",
+          "evidence": "Le Méridien lists seven event rooms, while Hyatt and other resorts offer ballroom, hall and lawn combinations.",
+          "evidence_strength": "Strong for published venue configurations."
+        },
+        {
+          "development": "Digital guest coordination is an emerging operating model rather than a measured local standard.",
+          "evidence": "Research supports coordination needs, but reliable evidence of local adoption of QR registration, wedding websites or command centres is limited.",
+          "evidence_strength": "Weak to moderate."
+        },
+        {
+          "development": "Food-safety compliance is becoming a formal supplier-selection requirement.",
+          "evidence": "FSSAI requires caterers serving marriages or parties to hold a licence or registration and follow catering controls.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "development": "Venue competition is broadening across branded resorts, independent lawns and local planning companies.",
+          "evidence": "The market includes Hyatt, Le Méridien, Fairfield, Vasdaa, banquet venues and several integrated local planners.",
+          "evidence_strength": "Strong for observed supplier landscape."
+        }
+      ]
+    },
+    "customer_insights": [
+      {
+        "segment": "Local Dehradun families",
+        "needs": [
+          "Convenient access",
+          "Traditional ceremonies",
+          "Reliable food quality",
+          "Family-friendly venue reputation"
+        ],
+        "pain_points": [
+          "Traffic and parking",
+          "Complex multi-function coordination",
+          "Conflicting family preferences"
+        ],
+        "purchase_drivers": [
+          "Local reputation",
+          "Catering quality",
+          "Ease of family participation",
+          "Transparent pricing"
+        ],
+        "behavior": "Likely to compare familiar banquet and hotel options while retaining strong influence over rituals, food and guest hosting.",
+        "implication": "Local convenience and cultural fit must remain central even when adopting a destination-style format.",
+        "evidence_strength": "Moderate; direct customer survey evidence was not located."
+      },
+      {
+        "segment": "Out-of-town and destination guests",
+        "needs": [
+          "Room blocks",
+          "Airport and railway transfers",
+          "Centralized functions",
+          "Hospitality desk"
+        ],
+        "pain_points": [
+          "Unclear room allocation",
+          "Transfer delays",
+          "Dispersed venues",
+          "Poor arrival communication"
+        ],
+        "purchase_drivers": [
+          "Integrated accommodation",
+          "Transport coordination",
+          "Convenient location",
+          "Guest service quality"
+        ],
+        "behavior": "More dependent on hosts for logistics and more sensitive to travel friction than local guests.",
+        "implication": "Guest movement and accommodation quality directly affect the perceived success of the wedding.",
+        "evidence_strength": "Strong for operational needs."
+      },
+      {
+        "segment": "Elderly, children and differently abled guests",
+        "needs": [
+          "Short walking distances",
+          "Accessible rooms and washrooms",
+          "Nearby seating",
+          "Shaded waiting areas",
+          "Reliable drop-offs"
+        ],
+        "pain_points": [
+          "Long walks",
+          "Stairs and uneven surfaces",
+          "Heat or rain exposure",
+          "Insufficient seating"
+        ],
+        "purchase_drivers": [
+          "Physical accessibility",
+          "Comfort",
+          "Safety",
+          "Visible family support"
+        ],
+        "behavior": "Less tolerant of dispersed layouts and weather exposure, with needs often raised late unless deliberately planned.",
+        "implication": "Accessibility gaps can disproportionately damage family satisfaction despite strong overall event production.",
+        "evidence_strength": "Strong as a planning requirement; venue evidence is limited."
+      },
+      {
+        "segment": "Bride's and groom's families",
+        "needs": [
+          "Shared decision process",
+          "Budget clarity",
+          "Ritual alignment",
+          "Consistent vendor communication"
+        ],
+        "pain_points": [
+          "Budget disputes",
+          "Conflicting invitations",
+          "Different food or music preferences",
+          "Approval delays"
+        ],
+        "purchase_drivers": [
+          "Trust",
+          "Control",
+          "Cultural fit",
+          "Execution confidence"
+        ],
+        "behavior": "Multiple stakeholders influence purchases, making emotional priorities and authority structures as important as price.",
+        "implication": "The operating model must protect both families' priorities while preventing contradictory instructions.",
+        "evidence_strength": "Moderate to strong."
+      }
+    ],
+    "competitive_landscape": [
+      {
+        "competitor": "Hyatt Regency Dehradun Resort and Spa",
+        "type": "Luxury hotel and resort venue",
+        "positioning": "Premium, large-format, accommodation-led wedding venue.",
+        "strengths": [
+          "33,529 square feet of event space",
+          "700-guest ballroom",
+          "450-guest lawn",
+          "Dedicated events team"
+        ],
+        "gaps": [
+          "Pricing and room-block terms unpublished",
+          "Outside-vendor policy unconfirmed",
+          "Rain-plan and parking details require verification"
+        ],
+        "implication": "Strong fit for a premium, centralized wedding if commercial and weather terms are acceptable.",
+        "evidence_strength": "Strong for published venue facts."
+      },
+      {
+        "competitor": "Le Méridien Dehradun Resort & Spa",
+        "type": "Luxury resort and hotel venue",
+        "positioning": "Flexible multi-function resort with several halls and lawns.",
+        "strengths": [
+          "Seven event rooms",
+          "925 square metres of event space",
+          "500-guest largest reception",
+          "Multiple ceremony configurations"
+        ],
+        "gaps": [
+          "Food minimums unconfirmed",
+          "Room inventory unconfirmed",
+          "Vendor restrictions and backup arrangements unclear"
+        ],
+        "implication": "Compelling for weddings requiring separate spaces for ceremonies, meals and receptions.",
+        "evidence_strength": "Strong for published venue facts."
+      },
+      {
+        "competitor": "Vasdaa Grand",
+        "type": "Destination-style hotel and wedding venue",
+        "positioning": "Compact, on-site destination wedding with substantial capacity.",
+        "strengths": [
+          "64 rooms",
+          "28,000 square feet of event space",
+          "Capacity above 1,000 guests",
+          "Indicative room pricing published"
+        ],
+        "gaps": [
+          "Availability and package inclusions unconfirmed",
+          "Published pricing is date-dependent",
+          "Actual event layouts require validation"
+        ],
+        "implication": "Strong option when accommodation concentration and large guest capacity outweigh brand prestige.",
+        "evidence_strength": "Strong for supplier-published facts."
+      },
+      {
+        "competitor": "Fairfield by Marriott Dehradun",
+        "type": "Upper-midscale hotel and banquet venue",
+        "positioning": "Professional hotel execution for smaller and medium-sized functions.",
+        "strengths": [
+          "Five event rooms",
+          "300-guest largest capacity",
+          "Marriott wedding-planner support",
+          "Integrated accommodation"
+        ],
+        "gaps": [
+          "Wedding pricing unpublished",
+          "Room-block terms unconfirmed",
+          "Outside-catering rules unclear"
+        ],
+        "implication": "Suitable where service reliability and moderate scale matter more than luxury-resort positioning.",
+        "evidence_strength": "Strong for published venue facts."
+      },
+      {
+        "competitor": "Local integrated wedding planners",
+        "type": "Planning, decor and hospitality providers",
+        "positioning": "Flexible end-to-end coordination across venue, vendors, decor and guest experience.",
+        "strengths": [
+          "Local supplier networks",
+          "Customization",
+          "On-site coordination",
+          "Potentially broader venue choice"
+        ],
+        "gaps": [
+          "Self-reported experience claims",
+          "Package inclusions vary",
+          "References and service protections require verification"
+        ],
+        "implication": "Can reduce family coordination burden, but value depends on measurable deliverables and contract discipline.",
+        "evidence_strength": "Moderate."
+      }
+    ],
+    "market_trends": [
+      {
+        "trend": "Integrated destination-style wedding experiences",
+        "evidence": "Hotels and planners increasingly combine rooms, event spaces, transfers, hospitality, decor and execution.",
+        "implication": "Guest experience is increasingly judged across the complete journey rather than the ceremony alone.",
+        "evidence_strength": "Moderate."
+      },
+      {
+        "trend": "Personalized premium wedding production",
+        "evidence": "Supplier positioning emphasizes themed decor, curated food, entertainment, customized concepts and managed guest journeys.",
+        "implication": "Differentiation increasingly depends on personalization and consistency across multiple touchpoints.",
+        "evidence_strength": "Moderate."
+      },
+      {
+        "trend": "Weather-resilient event planning",
+        "evidence": "High June-September rainfall makes indoor alternatives, covered movement and waterproof production increasingly important.",
+        "implication": "Weather resilience is a core quality dimension for Dehradun weddings, not a contingency-only concern.",
+        "evidence_strength": "Strong."
+      },
+      {
+        "trend": "Formalization of food-safety and vendor compliance",
+        "evidence": "FSSAI licensing and catering guidance specify requirements for marriage and party caterers.",
+        "implication": "Compliance is becoming part of supplier qualification and reputational risk control.",
+        "evidence_strength": "Strong."
+      },
+      {
+        "trend": "Preference for lower-travel, centralized formats",
+        "evidence": "Dehradun offers airport, rail and road access, while hill destinations introduce additional travel complexity.",
+        "implication": "Centralized Dehradun venues may gain preference among mixed-age and mixed-origin guest groups.",
+        "evidence_strength": "Moderate."
+      }
+    ],
+    "opportunities": [
+      {
+        "opportunity": "Create a centralized guest-hospitality program.",
+        "why_it_matters": "Out-of-town guests and elderly family members are especially sensitive to transfer delays, unclear room assignments, long walks, and poor arrival support.",
+        "supporting_finding": "Accessibility and hospitality are material unmet requirements, while Dehradun supports accommodation-led wedding formats.",
+        "execution_considerations": "Appoint a hospitality lead, prepare rooming and transfer manifests, provide an arrival desk, assign family hosts, and arrange accessible rooms, seating, golf carts or close drop-offs where needed."
+      },
+      {
+        "opportunity": "Use a hub-and-overflow accommodation model.",
+        "why_it_matters": "It can preserve a unified guest experience while avoiding the cost of placing every guest in the most expensive property.",
+        "supporting_finding": "Dehradun has integrated hotel venues and nearby accommodation alternatives.",
+        "execution_considerations": "Keep the couple, immediate family, elderly guests, and key vendors at the hub; place overflow guests nearby with scheduled shuttles and equivalent service standards."
+      },
+      {
+        "opportunity": "Build a weather-resilient wedding design.",
+        "why_it_matters": "Reliable execution can become a stronger differentiator than additional decoration, particularly during monsoon dates.",
+        "supporting_finding": "Rainfall is substantial in July and August and competing venues vary in indoor-outdoor flexibility.",
+        "execution_considerations": "Require an indoor version of every function, covered guest routes, waterproof power and production plans, drainage checks, and a decision deadline for switching formats."
+      },
+      {
+        "opportunity": "Install a dedicated joint family command structure.",
+        "why_it_matters": "It protects the bride's and groom's families from operational overload and reduces contradictory decisions.",
+        "supporting_finding": "Family coordination failure is a recognized execution risk and integrated planners increasingly provide on-site management.",
+        "execution_considerations": "Create one shared brief, a decision matrix, weekly approvals, a single vendor instruction channel, and an event-day command centre with escalation rules."
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Outdoor functions are disrupted by rain, heat, or unsafe guest movement.",
+        "why_it_matters": "This can damage production, delay rituals, reduce comfort, and create emergency costs.",
+        "mitigation": "Choose a venue with credible indoor capacity; contract the rain infrastructure in advance; test drainage, power, access routes, and wet-weather layouts."
+      },
+      {
+        "risk": "The final budget materially exceeds the apparent quotation.",
+        "why_it_matters": "Incomplete packages can create family disputes and force late compromises on high-value experience elements.",
+        "mitigation": "Request an all-in comparison including taxes, minimum spends, rooms, meals, overtime, power, permits, transport, rain cover, corkage, service charges, and cancellation terms."
+      },
+      {
+        "risk": "Family instructions or approvals conflict.",
+        "why_it_matters": "The result may be missed rituals, duplicated purchases, vendor confusion, and dissatisfaction on either side.",
+        "mitigation": "Nominate one authorized representative from each family, define decision rights, freeze approved plans, and route all supplier changes through the command structure."
+      },
+      {
+        "risk": "Food, sound, alcohol, fireworks, or late-night entertainment fails compliance checks.",
+        "why_it_matters": "A compliance issue can interrupt the event or create health, legal, and reputational consequences.",
+        "mitigation": "Verify caterer FSSAI credentials, obtain written venue and local permissions, confirm sound cut-off times, and document responsibility for every permit."
+      },
+      {
+        "risk": "Elderly, child, or differently abled guests experience avoidable discomfort or safety problems.",
+        "why_it_matters": "A small accessibility failure can disproportionately affect family satisfaction.",
+        "mitigation": "Conduct a physical site audit covering stairs, distances, washrooms, seating, shade, lighting, medical support, parking, and emergency evacuation."
+      }
+    ],
+    "strategic_insights": [
+      {
+        "implication": "Select the wedding format before selecting suppliers: centralized resort, hotel hub with overflow rooms, or multi-venue city format.",
+        "based_on": "Venue segmentation, city accessibility, accommodation needs, and the benefits of lower guest travel.",
+        "business_meaning": "A centralized or hub-and-overflow model is likely to deliver the most consistent experience for mixed-age and out-of-town guests."
+      },
+      {
+        "implication": "Treat the rain plan as part of the primary design, not as an emergency fallback.",
+        "based_on": "High July-August rainfall and the operational risks of outdoor ceremonies and production.",
+        "business_meaning": "The preferred venue must be judged on its wet-weather experience, covered movement, power, drainage, and indoor capacity."
+      },
+      {
+        "implication": "Protect experience-critical spending while controlling low-visibility extras.",
+        "based_on": "Customer emphasis on food, comfort, ceremonies, hospitality, and fragmented supplier pricing.",
+        "business_meaning": "Prioritize catering, guest care, accessibility, photography, sound, and ceremony execution before discretionary styling upgrades."
+      },
+      {
+        "implication": "Use a formal two-family governance model with one operating point of contact.",
+        "based_on": "Multiple decision-makers, conflicting preferences, and the growing role of integrated planners.",
+        "business_meaning": "Clear authority and communication will reduce stress and prevent inconsistent instructions during the planning period and event."
+      }
+    ],
+    "recommended_actions": [
+      {
+        "priority": "1",
+        "action": "Agree a one-page wedding brief covering date flexibility, guest count by function, rituals, cuisine, accommodation, alcohol, entertainment, accessibility, and budget ceiling.",
+        "based_on_finding": "Family priorities and guest requirements are currently undefined, while venue suitability depends on scale and format.",
+        "reason": "Without this brief, venue and supplier comparisons will not be meaningful.",
+        "expected_impact": "Faster decisions, fewer family disputes, and better-fit venue shortlisting.",
+        "implementation_note": "Obtain sign-off from one empowered representative of each family before requesting final quotations."
+      },
+      {
+        "priority": "2",
+        "action": "Shortlist three venue models: a premium centralized resort, a multi-function hotel, and a value-oriented hotel or venue with nearby accommodation.",
+        "based_on_finding": "Dehradun offers distinct venue segments and centralized formats reduce travel friction.",
+        "reason": "A structured comparison prevents brand preference from replacing experience and value assessment.",
+        "expected_impact": "Clear trade-off between hospitality, capacity, cost, flexibility, and prestige.",
+        "implementation_note": "Score each venue on indoor backup, rooms, accessibility, catering, parking, power, permissions, and total delivered cost."
+      },
+      {
+        "priority": "3",
+        "action": "Conduct an on-site operational audit before placing any deposit.",
+        "based_on_finding": "Published venue information does not adequately cover accessibility, emergency readiness, rain plans, parking, or generators.",
+        "reason": "Site execution quality cannot be inferred from capacity or marketing materials.",
+        "expected_impact": "Lower risk of guest discomfort, delays, production failure, and hidden charges.",
+        "implementation_note": "Visit during a comparable time of day and test the actual routes between rooms, ceremony spaces, dining, parking, and washrooms."
+      },
+      {
+        "priority": "4",
+        "action": "Request an all-in, function-by-function commercial proposal from venues and planners.",
+        "based_on_finding": "Published prices are fragmented and often exclude material delivery costs.",
+        "reason": "Comparable total-cost visibility is essential before committing to a format.",
+        "expected_impact": "Reduced budget escalation and more credible supplier negotiation.",
+        "implementation_note": "Require inclusions, exclusions, taxes, minimum guarantees, overtime, cancellation, weather contingencies, vendor restrictions, and payment milestones in writing."
+      },
+      {
+        "priority": "5",
+        "action": "Appoint one lead planner or wedding operations manager, supported by a representative from each family.",
+        "based_on_finding": "Integrated coordination is valuable and two-family decision complexity is a major execution risk.",
+        "reason": "Family members should host and enjoy the wedding rather than manage suppliers and guest incidents.",
+        "expected_impact": "Improved accountability, quicker issue resolution, and a more consistent experience for both sides.",
+        "implementation_note": "Use a written scope covering guest logistics, vendor control, run-of-show, approvals, contingency response, and event-day staffing."
+      },
+      {
+        "priority": "6",
+        "action": "Lock compliance and contingency controls at least before final vendor contracting.",
+        "based_on_finding": "Food-safety, sound restrictions, weather, and hidden operational dependencies can disrupt delivery.",
+        "reason": "These are high-impact risks with limited recovery time during the wedding.",
+        "expected_impact": "Greater continuity, guest safety, and confidence in the event plan.",
+        "implementation_note": "Collect FSSAI documentation, permit responsibilities, backup vendor contacts, medical support details, generator capacity, and a written rain-switch protocol."
+      }
+    ],
+    "decision_takeaway": "Choose the venue and operating model that best protect guest comfort, family alignment, and weather resilience—not simply the venue with the largest capacity or most attractive decor. The next commitment should follow a signed shared brief, a site audit, and an all-in commercial comparison. A centralized venue with controlled overflow accommodation and professional on-site coordination is the strongest default approach for delivering a great experience to both families.",
+    "evidence_quality": {
+      "strong_findings": [
+        "Dehradun connectivity and airport access from government sources.",
+        "Monthly rainfall and rainy-day statistics from the India Meteorological Department.",
+        "Published venue capacities and event-space configurations from official hotel sources.",
+        "FSSAI catering licensing and food-safety requirements.",
+        "Noise-permission and night-time sound restrictions from the Uttarakhand Pollution Control Board.",
+        "Observed operational risks involving weather, accessibility, contracting and coordination."
+      ],
+      "reasonable_findings": [
+        "Market segmentation across luxury resorts, hotels, lawns and planners.",
+        "Growing relevance of integrated planning and hospitality services.",
+        "Likely preferences of local, destination and value-conscious families.",
+        "Potential preference for centralized venues and lower-travel formats.",
+        "Supplier positioning around premium personalization and guest experience."
+      ],
+      "uncertain_findings": [
+        "Dehradun-specific wedding demand, annual volume and market growth.",
+        "Average total wedding budgets, guest counts and customer price elasticity.",
+        "Local adoption of digital wedding technology.",
+        "Independent comparative performance data for planners and vendors.",
+        "Quantitative customer satisfaction by family or guest segment."
+      ],
+      "research_limitations": [
+        "No confirmed wedding date, guest count, budget, rituals, or accommodation requirements were provided.",
+        "Venue capacities and package information are primarily supplier-published and are not directly comparable until verified through quotations and site visits.",
+        "Dehradun-specific wedding demand, average budgets, customer satisfaction, and supplier market share were not quantified.",
+        "Pricing, availability, minimum spends, taxes, room blocks, vendor restrictions, and cancellation terms remain unverified.",
+        "Accessibility, medical support, emergency systems, permissions, and actual rain-plan quality require direct venue validation.",
+        "Independent performance references for local planners and vendors are limited."
+      ]
+    },
+    "sources": [
+      {
+        "source": "District Dehradun, How to Reach",
+        "organization": "District Administration, Dehradun",
+        "url": "https://dehradun.nic.in/how-to-reach/",
+        "information_supported": "Airport, rail, road and regional access considerations.",
+        "source_quality": "Government; high"
+      },
+      {
+        "source": "District Dehradun, Climate",
+        "organization": "District Administration, Dehradun",
+        "url": "https://dehradun.nic.in/climate/",
+        "information_supported": "General climate and annual rainfall context.",
+        "source_quality": "Government; high"
+      },
+      {
+        "source": "Dehradun climatological table",
+        "organization": "India Meteorological Department",
+        "url": "https://city.imd.gov.in/citywx/extreme/JUN/dehradun2.htm",
+        "information_supported": "Monthly rainfall, temperature and rainy-day statistics.",
+        "source_quality": "Government scientific agency; high"
+      },
+      {
+        "source": "Uttarakhand Tourism: Dehradun",
+        "organization": "Uttarakhand Tourism",
+        "url": "https://www.uttarakhandtourism.gov.in/destination/dehradun",
+        "information_supported": "Destination positioning, connectivity and nearby destinations.",
+        "source_quality": "Government tourism authority; high"
+      },
+      {
+        "source": "Uttarakhand Tourism: Mussoorie",
+        "organization": "Uttarakhand Tourism",
+        "url": "https://www.uttarakhandtourism.gov.in/destination/mussoorie",
+        "information_supported": "Mussoorie positioning, access and destination characteristics.",
+        "source_quality": "Government tourism authority; high"
+      },
+      {
+        "source": "Noise Pollution Rules",
+        "organization": "Uttarakhand Pollution Control Board",
+        "url": "https://ukpcb.uk.gov.in/home/url?id=1154&menu_type=submaintwo",
+        "information_supported": "Written permission, sound restrictions and night-time rules.",
+        "source_quality": "Regulatory authority; high"
+      },
+      {
+        "source": "FSSAI Licensing and Registration FAQ",
+        "organization": "Food Safety and Standards Authority of India",
+        "url": "https://mail.fssai.gov.in/upload/uploadfiles/files/FAQs_Licensing_Registration_21_12_2022.pdf",
+        "information_supported": "Caterer licensing requirements for marriages and parties.",
+        "source_quality": "Regulatory authority; high"
+      },
+      {
+        "source": "FSSAI Catering Sector Guidance",
+        "organization": "Food Safety and Standards Authority of India",
+        "url": "https://www.fssai.gov.in/upload/uploadfiles/files/Guidance_Document_Catering_Sector_19_01_2018%281%29.pdf",
+        "information_supported": "Food-safety management, hygiene, storage, handling and catering controls.",
+        "source_quality": "Regulatory authority; high"
+      },
+      {
+        "source": "Hyatt Regency Dehradun Weddings",
+        "organization": "Hyatt Hotels Corporation",
+        "url": "https://www.hyatt.com/hyatt-regency/en-US/delrh-hyatt-regency-dehradun/weddings",
+        "information_supported": "Event spaces, capacities, location and hotel wedding positioning.",
+        "source_quality": "Official company source; high for published venue facts"
+      },
+      {
+        "source": "Le Méridien Dehradun Events",
+        "organization": "Marriott International",
+        "url": "https://www.marriott.com/en-us/hotels/dedmd-le-meridien-dehradun-resort-and-spa/events/",
+        "information_supported": "Event-room count, capacities and event-space configurations.",
+        "source_quality": "Official company source; high for published venue facts"
+      },
+      {
+        "source": "Fairfield Dehradun Events",
+        "organization": "Marriott International",
+        "url": "https://www.marriott.com/en-us/hotels/dedfi-fairfield-dehradun/events/",
+        "information_supported": "Event-room count, capacity and wedding-planner support.",
+        "source_quality": "Official company source; high for published venue facts"
+      },
+      {
+        "source": "Vasdaa Grand",
+        "organization": "Vasdaa Grand",
+        "url": "https://vasdaa.com/",
+        "information_supported": "Rooms, event space, capacity, location, indicative room pricing and wedding positioning.",
+        "source_quality": "Official company source; moderate to high for supplier-published facts"
+      },
+      {
+        "source": "Seyfert Sarovar Premiere Meetings and Events",
+        "organization": "Sarovar Hotels",
+        "url": "https://www.sarovarhotels.com/seyfert-sarovar-premiere-dehradun/banquets-conferences/meetings-events.html",
+        "information_supported": "Hotel banquet and wedding positioning.",
+        "source_quality": "Official company source; moderate"
+      },
+      {
+        "source": "The Pearl Grand Events and Celebrations",
+        "organization": "The Pearl Grand",
+        "url": "https://www.thepearlgrand.in/halls-and-gardens",
+        "information_supported": "Banquet, lawn and maximum published capacity.",
+        "source_quality": "Official company source; moderate"
+      },
+      {
+        "source": "The VEHding Co.",
+        "organization": "Vishesh Events & Hospitality",
+        "url": "https://www.vehdings.com/",
+        "information_supported": "Local planning, decor, hospitality, guest management, venue selection and package starting points.",
+        "source_quality": "Official supplier source; moderate"
+      },
+      {
+        "source": "Dehradun Wedding Planners",
+        "organization": "Dehradun Wedding Planners",
+        "url": "https://dehradunweddingplanners.com/",
+        "information_supported": "Local planning, venue, decor, catering, entertainment, coordination and package starting price.",
+        "source_quality": "Official supplier source; moderate"
+      },
+      {
+        "source": "Samadhan Event Planners",
+        "organization": "Samadhan Event Planners",
+        "url": "https://samadhanpartymaker.com/",
+        "information_supported": "Local planning, catering, decor, live counters and self-reported experience.",
+        "source_quality": "Official supplier source; moderate"
+      },
+      {
+        "source": "SEBI-hosted wedding-industry document",
+        "organization": "Securities and Exchange Board of India",
+        "url": "https://www.sebi.gov.in/sebi_data/attachdocs/jul-2025/1751455806758_838.pdf",
+        "information_supported": "National wedding-volume and spending estimates cited in an investment-sector document.",
+        "source_quality": "Regulatory-hosted secondary source; moderate"
+      }
+    ],
+    "research_plan": {
+      "research_objective": "Identify and compare the venues, vendors, budgets, logistics, cultural requirements, and guest-experience practices needed to plan and execute a high-quality Indian wedding in Dehradun that satisfies both the bride's and groom's families while controlling cost, risk, and coordination complexity.",
+      "research_questions": [
+        "What wedding format, scale, budget range, dates, and cultural traditions will best meet the expectations of both families?",
+        "Which Dehradun venues can comfortably support the required ceremonies, guest capacity, accommodation, catering, parking, accessibility, and weather contingencies?",
+        "Which vendors and planners can reliably deliver the required services across decor, food, photography, entertainment, makeup, transport, hospitality, and ceremony management?",
+        "How should responsibilities, approvals, communication, and budget control be divided between the bride's and groom's sides to prevent misunderstandings?",
+        "What guest journey and hospitality plan will minimize inconvenience for local, out-of-town, elderly, and differently abled guests?",
+        "What combination of services and procurement choices provides the best balance of experience, quality, flexibility, and total cost?",
+        "What execution risks could disrupt the wedding, and what backup plans, contracts, staffing, and contingency funds are required?"
+      ],
+      "customer_questions": [
+        "How many guests are expected from each side, and how many are likely to attend each ceremony or function?",
+        "What are the non-negotiable religious, regional, family, food, dress, music, and ceremony preferences of each side?",
+        "What does each family consider a successful wedding experience, and where do their expectations differ?",
+        "What total budget and function-level budgets are acceptable, and who has final authority over spending decisions?",
+        "What are the preferred wedding dates, and how flexible are they if venue availability, weather, or pricing requires a change?",
+        "Which guests require accommodation, airport or railway transfers, local transport, medical support, special meals, or accessibility assistance?",
+        "What guest complaints or service failures must be specifically avoided based on previous wedding experiences?",
+        "How much involvement do the couple and families want in vendor selection, design approvals, scheduling, and on-site coordination?",
+        "Which elements should be premium or personalized, such as food, decor, photography, entertainment, hospitality, or gifting?",
+        "What communication method and decision schedule will keep both sides informed without creating duplicate instructions or delays?"
+      ],
+      "competitor_questions": [
+        "Which Dehradun wedding planners, venues, caterers, decorators, photographers, entertainers, and hospitality providers serve weddings of comparable size and budget?",
+        "What are the verified package prices, inclusions, exclusions, taxes, overtime charges, cancellation terms, and payment schedules of shortlisted providers?",
+        "Which providers have demonstrated experience handling multi-function Indian weddings and coordinating both families?",
+        "What evidence exists for each provider's reliability, including recent references, reviews, completed weddings, response times, and issue-resolution history?",
+        "How do competing venues differ in capacity, room inventory, catering restrictions, parking, power backup, rain plans, sound rules, and vendor flexibility?",
+        "Which vendors offer distinctive value in cuisine, decor, cultural execution, guest hospitality, technology, sustainability, or customization?",
+        "What are the common service failures, hidden costs, contract gaps, and operational limitations reported by past customers?",
+        "Which vendor combinations can reduce coordination risk through an experienced full-service planner or preferred-vendor ecosystem?"
+      ],
+      "market_questions": [
+        "What is the current Dehradun price range for venues, rooms, catering per plate, decor, photography, entertainment, transport, makeup, and planning fees?",
+        "Which Dehradun areas and nearby destinations offer the best trade-off between venue quality, guest access, accommodation, traffic, and cost?",
+        "What venue and vendor availability exists for the preferred dates, including peak-season premiums and minimum booking requirements?",
+        "How do Dehradun offerings compare with nearby alternatives such as Mussoorie, Haridwar, Rishikesh, or Delhi in total delivered cost and guest convenience?",
+        "What local permits, noise restrictions, fire and safety requirements, hotel policies, traffic constraints, and religious or venue rules affect execution?",
+        "What is the availability and quality of accommodation across the required price tiers for both families and general guests?",
+        "Which local supply constraints affect large weddings, including power, water, staffing, transport, floral materials, specialty cuisine, and backup equipment?",
+        "What level of advance booking is required for high-demand venues and vendors, and what deposits are needed to secure them?"
+      ],
+      "trend_questions": [
+        "Are couples and families in the Dehradun market increasingly preferring intimate, destination-style, multi-day, or large traditional weddings?",
+        "How are demand and pricing changing for sustainable decor, local cuisine, live food stations, alcohol-free options, and personalized guest experiences?",
+        "What new expectations exist for digital invitations, wedding websites, guest-registration systems, live streaming, QR-based payments, and social-media content?",
+        "How are weather variability, seasonal rainfall, winter conditions, and climate concerns influencing venue selection and indoor backup planning?",
+        "What entertainment, decor, photography, fashion, and ceremony formats are currently popular among comparable Indian wedding customers?",
+        "Are guests placing greater importance on wellness, accessibility, privacy, child-friendly arrangements, elderly care, or reduced travel time?",
+        "How are inflation, fuel prices, tourism demand, and supplier labor costs affecting wedding budgets and vendor availability?"
+      ],
+      "risk_questions": [
+        "What happens if the preferred venue or a critical vendor becomes unavailable, cancels, underperforms, or fails to deliver contracted services?",
+        "What weather, traffic, accommodation, power, sound, food safety, medical, security, and crowd-management risks could affect each function?",
+        "Are vendor contracts sufficiently clear about deliverables, setup times, substitutions, service levels, refunds, force majeure, and liability?",
+        "What budget overrun risks arise from guest-count changes, overtime, taxes, transport, last-minute decor changes, hospitality extensions, or hidden venue charges?",
+        "Could disagreements between the bride's and groom's families delay decisions or create inconsistent instructions to vendors?",
+        "What privacy, consent, data-security, and reputational risks exist around photography, videography, livestreaming, and social-media publication?",
+        "What contingency budget, backup vendors, spare equipment, alternate accommodation, indoor spaces, and emergency contacts are required?",
+        "What health, accessibility, dietary, alcohol-service, fire-safety, and legal compliance requirements must be verified before signing contracts?"
+      ],
+      "evidence_requirements": [
+        "A documented requirements brief approved by representatives of both families, covering guest counts, ceremonies, priorities, budget, dates, cultural needs, and decision rights.",
+        "Comparable written quotations from at least three relevant options for major categories, with itemized inclusions, taxes, deposits, exclusions, cancellation terms, and payment schedules.",
+        "Venue site inspections and written verification of capacity, room inventory, layouts, parking, accessibility, power backup, rain plans, catering rules, sound limits, permits, and guest-transfer times.",
+        "Recent customer references, independent reviews, portfolios, and evidence of completed weddings of similar size and complexity for all shortlisted vendors.",
+        "A total-cost model with low, expected, and high scenarios, including contingency reserves and costs for both sides' requirements.",
+        "A guest-experience map covering invitations, arrival, check-in, accommodation, ceremonies, meals, transport, accessibility, communication, and departure.",
+        "A vendor comparison scorecard weighted by reliability, quality, experience, flexibility, cultural fit, guest impact, cost, and contract protection.",
+        "A detailed master schedule showing setup, ceremonies, meals, photography, transport, vendor handoffs, teardown, and responsible owners.",
+        "Signed contracts and approval records confirming deliverables, deadlines, escalation contacts, backup arrangements, insurance or liability provisions, and payment milestones.",
+        "Independent verification of local permits, venue regulations, noise and safety requirements, weather history, traffic conditions, accommodation availability, and emergency services.",
+        "A documented risk register with probability, impact, owner, trigger, mitigation, and contingency action for every critical wedding function.",
+        "Post-event feedback collected separately from the bride's side, groom's side, couple, and representative guests to assess whether the intended experience was achieved."
+      ]
+    },
+    "research_evidence": {
+      "market_evidence": [
+        {
+          "finding": "Dehradun is positioned as an accessible destination-wedding market rather than only a local banquet market.",
+          "evidence": "Uttarakhand Tourism describes Dehradun as the state capital, a gateway to Mussoorie, Haridwar and Rishikesh, and a city with modern amenities, road, rail and air connectivity. The District Dehradun website states that Jolly Grant Airport is approximately 20 km from the city centre.",
+          "evidence_strength": "Strong for destination accessibility; does not quantify wedding demand."
+        },
+        {
+          "finding": "The market is segmented across luxury resort weddings, hotel-banquet weddings, mid-market hotel functions, and independent lawns or community venues.",
+          "evidence": "Official venue information shows materially different formats: Hyatt Regency Dehradun offers 33,529 square feet of event space with a ballroom capacity of 700 and lawn capacity of 450; Le Méridien offers event spaces up to 500 reception guests; Fairfield Dehradun offers a largest space of 300 guests; Vasdaa Grand markets 64 rooms, 28,000 square feet of event space and capacity above 1,000 guests.",
+          "evidence_strength": "Strong for observed market structure; capacity and availability should be verified directly."
+        },
+        {
+          "finding": "Dehradun's venue economics are strongly affected by seasonality and weather, especially rainfall from June through September.",
+          "evidence": "India Meteorological Department climatological data for Dehradun reports mean rainfall of 621.6 mm in July and 714.9 mm in August, compared with 5.2 mm in November and 13.0 mm in December. This creates a significant value difference between venues with dependable indoor backup and venues dependent on outdoor lawns.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "finding": "The Indian wedding market is large and supports a broad supplier ecosystem, but national estimates vary substantially depending on the definition of wedding spending.",
+          "evidence": "A 2025 SEBI-hosted document cites estimates of approximately 8 million weddings annually and wedding spending of INR 8,000-16,000 billion. Other market reports cite materially different totals because they include or exclude jewellery, apparel, gifts, travel and household purchases.",
+          "evidence_strength": "Moderate for national market scale; weak for estimating Dehradun market size."
+        },
+        {
+          "finding": "Professional planning and guest-management services are becoming more relevant for multi-function weddings.",
+          "evidence": "Dehradun-based planners increasingly market integrated services covering venue selection, decor, catering, hospitality, guest movement, vendor management, entertainment and on-site coordination. This indicates that coordination complexity is a recognized purchasing need.",
+          "evidence_strength": "Moderate; based primarily on supplier positioning rather than independent demand measurement."
+        },
+        {
+          "finding": "A practical Dehradun market choice is usually between centralized hotel/resort execution and lower-cost external vendor procurement.",
+          "evidence": "Hotel venues such as Hyatt Regency, Le Méridien, Fairfield, Vasdaa Grand and Seyfert Sarovar Premiere provide integrated accommodation and event infrastructure. Independent planners and decorators offer more customization and potentially broader vendor choice, but increase the number of contracts, handoffs and operational dependencies.",
+          "evidence_strength": "Moderate; interpretation based on official venue and supplier offerings."
+        }
+      ],
+      "customer_evidence": [
+        {
+          "segment": "Local Dehradun families",
+          "finding": "Convenience, family participation, local reputation, food quality and easy access are likely to be more important than a fully destination-style experience.",
+          "evidence": "Dehradun's role as a regional education, administrative and cultural centre supports a local and nearby-family customer base. Local planners emphasize traditional ceremonies, catering, decor and family-specific customization.",
+          "evidence_strength": "Moderate; direct Dehradun customer survey evidence was not located."
+        },
+        {
+          "segment": "Out-of-town family and destination guests",
+          "finding": "Accommodation blocks, airport or railway transfers, centralized functions and a dedicated hospitality desk are high-priority requirements.",
+          "evidence": "Dehradun is connected by air, rail and road, while venue providers such as Vasdaa Grand, Hyatt Regency and hotel resorts combine rooms with event spaces. Planner offerings explicitly include arrival, accommodation and guest-movement coordination.",
+          "evidence_strength": "Strong for operational need; willingness to pay should be validated with the actual guest list."
+        },
+        {
+          "segment": "Elderly, children and differently abled guests",
+          "finding": "Short walking distances, lifts or ground-floor rooms, accessible washrooms, seating near ceremony areas, shaded waiting zones and reliable vehicle drop-offs should be treated as core requirements rather than optional extras.",
+          "evidence": "The reviewed venue pages advertise event space and accommodation but generally do not provide sufficiently detailed accessibility specifications. This absence makes direct site inspection and written venue confirmation necessary.",
+          "evidence_strength": "Strong as a planning requirement; venue-specific evidence gap."
+        },
+        {
+          "segment": "Bride's and groom's families with different priorities",
+          "finding": "The greatest customer risk is not only service quality but disagreement over budget authority, rituals, guest invitations, food, music, gifts and hospitality standards.",
+          "evidence": "Indian weddings commonly involve multiple functions and family decision-makers. Local planners position their services around one connected plan, budget control, vendor management and guest hospitality, indicating that coordination and expectation alignment are central needs.",
+          "evidence_strength": "Moderate; should be confirmed through a joint requirements workshop."
+        },
+        {
+          "segment": "Value-conscious families",
+          "finding": "Customers are likely to be price-sensitive on venue and room costs but less price-sensitive on food safety, photography reliability, bridal makeup, guest comfort and ceremony execution.",
+          "evidence": "Available supplier positioning shows a tiered market, including planner packages from approximately INR 3 lakh to INR 10 lakh or more, while premium hotels emphasize integrated experience, facilities and service. These are supplier price signals, not independent customer elasticity estimates.",
+          "evidence_strength": "Moderate."
+        }
+      ],
+      "competitor_evidence": [
+        {
+          "competitor": "Hyatt Regency Dehradun Resort and Spa",
+          "type": "Luxury hotel and resort venue",
+          "finding": "Best suited to large, premium, accommodation-led weddings requiring indoor and outdoor options and formal hotel service.",
+          "evidence": "The official wedding page lists 33,529 square feet of event space, a Regency Ballroom capacity of 700 guests, Vista Lawns capacity of 450 guests, a dedicated events team and a location on Mussoorie Road.",
+          "evidence_strength": "Strong for published capacity and positioning; pricing, room block terms, outside-vendor policy, parking and rain-plan details require written quotation and site inspection."
+        },
+        {
+          "competitor": "Le Méridien Dehradun Resort & Spa",
+          "type": "Luxury resort and hotel venue",
+          "finding": "Offers a flexible multi-function format with a 500-person lawn/reception option and several smaller halls suitable for segregating ceremonies.",
+          "evidence": "The official Marriott event page lists seven event rooms, 925 square metres of total event space, a largest capacity of 500, Shivalik Grand Lawn reception capacity of 500, and Serene Lawn reception capacity of 300.",
+          "evidence_strength": "Strong for published capacity; room inventory, food minimums, vendor restrictions, parking and backup arrangements require verification."
+        },
+        {
+          "competitor": "Vasdaa Grand",
+          "type": "Destination-style hotel and wedding venue",
+          "finding": "Strong fit for a compact destination wedding where many guests stay on-site and functions are concentrated at one property.",
+          "evidence": "The official website markets 64 rooms, 28,000 square feet of event space, multiple halls and lawns, three food-and-beverage venues, proximity to Lachiwala and Jolly Grant Airport, and a stated capacity above 1,000 guests. It publishes indicative room prices such as INR 4,567 per night for a superior room and INR 6,500 for a premium triple, subject to date and booking conditions.",
+          "evidence_strength": "Strong for supplier-published features and indicative pricing; independent verification of room availability, taxes, package inclusions and actual event capacity is required."
+        },
+        {
+          "competitor": "Fairfield by Marriott Dehradun",
+          "type": "Upper-midscale hotel and banquet venue",
+          "finding": "Potentially suitable for smaller or medium-sized functions where hotel accommodation and professional event support are needed without the scale of a luxury resort.",
+          "evidence": "The official Marriott page lists five event rooms, 479 square metres of total event space and a largest capacity of 300 guests. It also states that Marriott Certified Wedding Planners can assist with budget, menu, florists, photographers, entertainment and execution.",
+          "evidence_strength": "Strong for published capacity and service model; wedding pricing, room blocks and outside-catering rules require direct confirmation."
+        },
+        {
+          "competitor": "Seyfert Sarovar Premiere Dehradun",
+          "type": "Hotel banquet venue",
+          "finding": "Competes on a traditional hotel-banquet proposition for weddings, receptions and pre- and post-wedding ceremonies.",
+          "evidence": "The official venue page markets banquet halls for traditional and unconventional weddings and pre- and post-wedding functions.",
+          "evidence_strength": "Moderate; the reviewed page provided limited capacity and pricing detail."
+        },
+        {
+          "competitor": "The Pearl Grand",
+          "type": "Banquet and lawn venue",
+          "finding": "A large-format alternative for customers prioritizing event capacity and a banquet/lawn setup over resort accommodation.",
+          "evidence": "The official website describes banquet halls and an outdoor lawn for weddings and lists a maximum capacity of 700 guests.",
+          "evidence_strength": "Moderate to strong for stated capacity; accommodation, weather backup, power, catering rules and parking require verification."
+        },
+        {
+          "competitor": "The VEHding Co.",
+          "type": "Local wedding planner, decorator and hospitality coordinator",
+          "finding": "Positions itself as an integrated local partner for planning, decor, destination coordination, guest hospitality, catering coordination, venue selection and vendor management.",
+          "evidence": "The company's official website lists planning, decor and production, destination weddings, hospitality, catering and guest experience, venue selection and partner-service coordination. It publishes starting points of approximately INR 5 lakh for Basic, INR 7 lakh for Gold and INR 10 lakh for Platinum.",
+          "evidence_strength": "Moderate; prices are supplier-published starting points and should not be treated as comparable total wedding budgets."
+        },
+        {
+          "competitor": "Dehradun Wedding Planners",
+          "type": "Local wedding planner and vendor coordinator",
+          "finding": "Competes with an all-in-one, budget-to-luxury planning proposition covering venue, decor, catering, entertainment, guest logistics and day-of coordination.",
+          "evidence": "The official website advertises packages from approximately INR 3 lakh and claims on-site coordination of decorators, caterers, photographers and entertainment teams.",
+          "evidence_strength": "Moderate; package inclusions, references, recent comparable weddings and contract protections require verification."
+        },
+        {
+          "competitor": "Samadhan Event Planners",
+          "type": "Local event planner and catering company",
+          "finding": "Offers a bundled planning, catering, decor and live-counter proposition that may reduce coordination complexity for traditional multi-function weddings.",
+          "evidence": "The official website states that it has more than 15 years of experience and has delivered more than 750 events, covering weddings, catering, decor and live counters.",
+          "evidence_strength": "Moderate; claims are self-reported and should be checked through recent references and completed-wedding evidence."
+        }
+      ],
+      "trend_evidence": [
+        {
+          "trend": "Integrated destination-style wedding experiences",
+          "finding": "Dehradun suppliers increasingly combine venue selection, accommodation, guest transfers, hospitality, decor and event execution rather than selling decoration alone.",
+          "evidence": "Vasdaa Grand, Hyatt Regency and local planners all market combinations of accommodation, event spaces and guest or event coordination.",
+          "evidence_strength": "Moderate."
+        },
+        {
+          "trend": "Personalized and premium wedding production",
+          "finding": "Customization, themed decor, curated food experiences, entertainment and highly managed guest journeys are becoming standard premium positioning.",
+          "evidence": "Local planners describe personalized concepts, layered decor, catering and guest experience; luxury hotels emphasize dedicated events teams and multiple event formats.",
+          "evidence_strength": "Moderate."
+        },
+        {
+          "trend": "Indoor-backup planning due to weather variability",
+          "finding": "Rain plans, covered walkways, indoor ceremony alternatives, waterproof production and flexible guest movement are particularly important for Dehradun weddings.",
+          "evidence": "IMD data shows very high average rainfall in July and August and substantial rainfall in June and September. Outdoor-only venues therefore carry greater execution risk during monsoon months.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "trend": "Digital planning and guest communication",
+          "finding": "Digital invitations, centralized guest lists, WhatsApp updates, live location sharing, RSVP tracking and digital payment records are practical tools for reducing family and vendor confusion.",
+          "evidence": "The reviewed local supplier pages emphasize coordination and guest management, although direct evidence of QR registration, wedding websites or digital command centres was limited.",
+          "evidence_strength": "Moderate as a recommended practice; weak as a measured local trend."
+        },
+        {
+          "trend": "Greater attention to food safety and compliance",
+          "finding": "Caterer licensing, hygiene controls, food-temperature management, potable water and allergen or dietary handling should be included in vendor selection.",
+          "evidence": "FSSAI states that caterers serving marriages or parties require an FSSAI licence or registration, and its catering guidance covers food safety management, hygiene and operational controls.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "trend": "Potential preference for lower-travel, centralized functions",
+          "finding": "For mixed local and out-of-town guest lists, a single hotel or a tightly clustered venue-and-hotel plan may outperform a scenic but dispersed Mussoorie or remote-resort format on convenience and execution reliability.",
+          "evidence": "Dehradun has city, airport and rail access, while Mussoorie involves hill-road travel. Uttarakhand Tourism identifies Dehradun as the access base for nearby destinations, and the District website confirms airport connectivity.",
+          "evidence_strength": "Moderate; total travel time and traffic must be tested for the selected dates."
+        }
+      ],
+      "opportunity_evidence": [
+        {
+          "opportunity": "Create a two-family wedding operating model with one approved brief, one master budget, one decision calendar and one vendor communication channel.",
+          "evidence": "The local planner market emphasizes integrated coordination, hospitality and vendor management, while the wedding format creates multiple family stakeholders and functions. A formal governance model can reduce duplicate instructions, approval delays and disputes.",
+          "evidence_strength": "Strong as an operational inference from the market structure."
+        },
+        {
+          "opportunity": "Use a centralized Dehradun hotel or resort for core guests and place overflow guests in nearby hotels with scheduled shuttles.",
+          "evidence": "Dehradun combines airport, rail and road access with venues offering rooms and event spaces. This structure can improve guest convenience while controlling room costs and preserving accommodation flexibility.",
+          "evidence_strength": "Moderate; requires date-specific room and transport quotations."
+        },
+        {
+          "opportunity": "Prioritize venues with genuine indoor and outdoor function options for monsoon or shoulder-season dates.",
+          "evidence": "IMD rainfall normals make outdoor-only execution risky in June-September. Hyatt Regency, Le Méridien, Fairfield and other hotel venues advertise indoor and outdoor spaces, creating a basis for weather-resilient planning.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "opportunity": "Separate high-emotion premium elements from commoditized spend.",
+          "evidence": "Families are likely to value food, hospitality, photography, makeup, ceremony management and elderly comfort more than uniform premium treatment across every decor or entertainment item. Venue and planner packages show a wide range of service levels, enabling selective premium allocation.",
+          "evidence_strength": "Moderate; should be tested through family prioritization scoring."
+        },
+        {
+          "opportunity": "Use a local full-service planner only if the contract includes measurable deliverables, staffing, escalation and backup arrangements.",
+          "evidence": "Local planners offer integrated planning, decor, catering, hospitality and on-site coordination, which can reduce coordination risk. However, most reviewed claims are self-reported and package starting prices do not define complete deliverables.",
+          "evidence_strength": "Strong as a procurement recommendation."
+        },
+        {
+          "opportunity": "Build a guest-experience desk for arrivals, room allocation, elderly assistance, dietary requests, ceremony timing and transport.",
+          "evidence": "Planner offerings explicitly include guest arrival, accommodation and movement coordination, while Dehradun's mixed local and destination accessibility creates a varied guest journey.",
+          "evidence_strength": "Moderate to strong."
+        }
+      ],
+      "risk_evidence": [
+        {
+          "risk": "Rain, thunderstorms or excessive heat disrupting outdoor ceremonies and decor.",
+          "evidence": "IMD climatological data records mean rainfall of 621.6 mm in July and 714.9 mm in August, with more than 20 rainy days in each month on average. Venue contracts should require a confirmed indoor alternative, rain-cover specifications and decision deadlines.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "risk": "Noise-permission violations or restrictions on late-night music.",
+          "evidence": "Uttarakhand Pollution Control Board reproduces the Noise Pollution Rules, stating that loudspeakers and public-address systems require written permission and that use at night is restricted, generally between 10:00 p.m. and 6:00 a.m., subject to specified exceptions and conditions.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "risk": "Food-safety failure or unlicensed catering.",
+          "evidence": "FSSAI's official FAQ states that caterers providing services for marriages or parties require an FSSAI licence or registration. FSSAI catering guidance also addresses hygiene, food handling, storage, water and temperature controls.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "risk": "Traffic and guest-transfer delays, particularly between Dehradun, airport areas, Mussoorie Road and hill destinations.",
+          "evidence": "Jolly Grant Airport is approximately 20-25 km from Dehradun depending on the official reference point, while Mussoorie is a separate hill destination connected by road. Actual travel times can vary with weather, peak traffic and event timing.",
+          "evidence_strength": "Strong for access complexity; date-specific travel-time testing remains necessary."
+        },
+        {
+          "risk": "Hidden costs in venue and vendor quotations.",
+          "evidence": "Supplier pages publish capacities and starting prices but commonly do not display complete itemized totals covering taxes, corkage, outside-vendor charges, overtime, generator power, valet, room upgrades, service charges, transport, rain structures and teardown. These items must be requested in comparable written quotations.",
+          "evidence_strength": "Strong procurement inference."
+        },
+        {
+          "risk": "Overreliance on self-reported vendor claims.",
+          "evidence": "Local planners and venues publish claims about years of experience, events delivered, reviews or past weddings, but independent verification through recent client references, invoices, portfolios, site visits and comparable-event evidence was not consistently available.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "risk": "Family conflict causing delayed approvals or inconsistent vendor instructions.",
+          "evidence": "The wedding format involves multiple functions, rituals, guest lists and payment responsibilities across two families. Without a written RACI model and approval thresholds, vendors may receive conflicting instructions.",
+          "evidence_strength": "Strong as an execution inference."
+        },
+        {
+          "risk": "Accessibility and elderly-care gaps.",
+          "evidence": "Reviewed venue pages generally provide capacity and event-space information but limited details on accessible rooms, ramps, washrooms, seating, lift access, medical support and vehicle drop-off. These requirements must be verified during site inspections.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "risk": "Contract failure, cancellation or vendor non-performance.",
+          "evidence": "Published supplier pages do not provide sufficient detail on force majeure, refunds, substitutions, service levels, backup staffing, liability or cancellation terms. Each major vendor should be contracted with deliverables, milestones, escalation contacts and remedies.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "risk": "Budget overrun caused by guest-count changes and premium add-ons.",
+          "evidence": "Wedding planners publish starting prices rather than fully comparable total-cost packages. Hotel and venue costs also depend on date, room block, food minimums, taxes, event duration and production requirements. A low, expected and high scenario should be maintained.",
+          "evidence_strength": "Strong."
+        }
+      ],
+      "important_statistics": [
+        {
+          "statistic": "Dehradun airport is approximately 20 km from the city centre according to the District Dehradun website; the Airports Authority of India lists the airport as approximately 25 km south-east of the city.",
+          "context": "Useful for guest-transfer planning; actual journey time varies by hotel, traffic and weather.",
+          "source": "District Dehradun, How to Reach: https://dehradun.nic.in/how-to-reach/; Airports Authority of India, Dehradun Airport: https://www.aai.aero/en/node/2926"
+        },
+        {
+          "statistic": "Dehradun mean rainfall is 621.6 mm in July and 714.9 mm in August, with average rainy days of 20.5 and 21.6 respectively.",
+          "context": "Supports mandatory indoor backup planning for monsoon weddings.",
+          "source": "India Meteorological Department, Dehradun climatological table: https://city.imd.gov.in/citywx/extreme/JUN/dehradun2.htm"
+        },
+        {
+          "statistic": "Hyatt Regency Dehradun lists 33,529 square feet of total event space, a ballroom capacity of 700 guests and Vista Lawns capacity of 450 guests.",
+          "context": "Indicative venue capacity for premium, large-format weddings; capacity must be reconfirmed for the selected banquet layout.",
+          "source": "Hyatt Regency Dehradun Weddings: https://www.hyatt.com/hyatt-regency/en-US/delrh-hyatt-regency-dehradun/weddings"
+        },
+        {
+          "statistic": "Le Méridien Dehradun lists seven event rooms, 925 square metres of total event space and a largest reception capacity of 500.",
+          "context": "Relevant for multi-function weddings using several halls and lawns.",
+          "source": "Marriott, Le Méridien Dehradun Events: https://www.marriott.com/en-us/hotels/dedmd-le-meridien-dehradun-resort-and-spa/events/"
+        },
+        {
+          "statistic": "Fairfield Dehradun lists five event rooms, 479 square metres of total event space and a largest capacity of 300.",
+          "context": "Relevant for medium-sized weddings requiring hotel accommodation and professional event support.",
+          "source": "Marriott, Fairfield Dehradun Events: https://www.marriott.com/en-us/hotels/dedfi-fairfield-dehradun/events/"
+        },
+        {
+          "statistic": "Vasdaa Grand markets 64 rooms, 28,000 square feet of event space and capacity above 1,000 guests; it publishes indicative room prices of INR 4,567 per night for a superior room and INR 6,500 for a premium triple.",
+          "context": "Supplier-published indicative figures only; taxes, dates, availability and wedding-package conditions must be confirmed.",
+          "source": "Vasdaa Grand: https://vasdaa.com/"
+        },
+        {
+          "statistic": "The VEHding Co. publishes starting points of approximately INR 5 lakh, INR 7 lakh and INR 10 lakh for its Basic, Gold and Platinum planning levels.",
+          "context": "Planning and production price signals, not complete wedding budgets or independently verified market averages.",
+          "source": "The VEHding Co.: https://www.vehdings.com/"
+        },
+        {
+          "statistic": "Dehradun Wedding Planners advertises packages from approximately INR 3 lakh.",
+          "context": "Supplier-published starting price; inclusions, taxes, guest count, venue charges and service level must be confirmed.",
+          "source": "Dehradun Wedding Planners: https://dehradunweddingplanners.com/"
+        },
+        {
+          "statistic": "FSSAI states that caterers serving marriages or parties require an FSSAI licence or registration.",
+          "context": "Mandatory vendor due-diligence item for all external or venue-appointed caterers.",
+          "source": "FSSAI Licensing FAQ: https://mail.fssai.gov.in/upload/uploadfiles/files/FAQs_Licensing_Registration_21_12_2022.pdf"
+        },
+        {
+          "statistic": "The Noise Pollution Rules require written permission for loudspeakers or public-address systems and restrict night-time use, generally between 10:00 p.m. and 6:00 a.m., subject to specified exceptions.",
+          "context": "Relevant to DJ, band, baraat, fireworks and outdoor sound planning.",
+          "source": "Uttarakhand Pollution Control Board: https://ukpcb.uk.gov.in/home/url?id=1154&menu_type=submaintwo"
+        },
+        {
+          "statistic": "A SEBI-hosted industry document cites approximately 8 million Indian weddings annually and wedding spending of INR 8,000-16,000 billion.",
+          "context": "National market-scale indicator only; it should not be used as a Dehradun-specific demand or average-budget estimate.",
+          "source": "SEBI-hosted document: https://www.sebi.gov.in/sebi_data/attachdocs/jul-2025/1751455806758_838.pdf"
+        }
+      ],
+      "evidence_gaps": [
+        "No reliable public dataset was found quantifying Dehradun-specific wedding demand, annual wedding volume, market growth, average guest count or average total wedding budget.",
+        "Comparable, date-specific quotations for venues, catering per plate, decor, photography, makeup, entertainment, transport and accommodation were not publicly available in a standardized format.",
+        "Venue availability, minimum room blocks, food-and-beverage minimums, taxes, service charges, outside-vendor restrictions, corkage, overtime, generator charges, parking and cancellation terms require direct written confirmation.",
+        "Independent references and audited performance data for local planners, caterers, decorators, photographers, makeup artists and entertainers are limited.",
+        "Detailed accessibility information, medical support, emergency procedures, fire approvals, evacuation plans and power-backup capacity were not consistently published by venues.",
+        "Current local permits for baraat routes, fireworks, temporary structures, outdoor sound, alcohol service, traffic management and public-space use require confirmation from the relevant venue, police, municipal and district authorities.",
+        "The actual preferred wedding date, guest count, family traditions, cuisine requirements, alcohol policy, room allocation and budget authority were not provided; these variables materially change the recommended venue and vendor mix.",
+        "There is insufficient independent evidence to compare Dehradun quantitatively with Mussoorie, Haridwar, Rishikesh or Delhi on total delivered cost and guest satisfaction.",
+        "Customer satisfaction evidence separated by bride's family, groom's family, couple, elderly guests and general guests was not available.",
+        "Technology adoption data for Dehradun weddings, including wedding websites, QR registration, livestreaming, digital seating plans and event-management applications, was not found in reliable local sources."
+      ],
+      "sources": [
+        {
+          "source": "District Dehradun, How to Reach",
+          "organization": "District Administration, Dehradun",
+          "url": "https://dehradun.nic.in/how-to-reach/",
+          "information_supported": "Airport, rail, road and regional access considerations.",
+          "source_quality": "Government; high"
+        },
+        {
+          "source": "District Dehradun, Climate",
+          "organization": "District Administration, Dehradun",
+          "url": "https://dehradun.nic.in/climate/",
+          "information_supported": "General climate and annual rainfall context.",
+          "source_quality": "Government; high"
+        },
+        {
+          "source": "Dehradun climatological table",
+          "organization": "India Meteorological Department",
+          "url": "https://city.imd.gov.in/citywx/extreme/JUN/dehradun2.htm",
+          "information_supported": "Monthly rainfall, temperature and rainy-day statistics.",
+          "source_quality": "Government scientific agency; high"
+        },
+        {
+          "source": "Uttarakhand Tourism: Dehradun",
+          "organization": "Uttarakhand Tourism",
+          "url": "https://www.uttarakhandtourism.gov.in/destination/dehradun",
+          "information_supported": "Destination positioning, connectivity and nearby destinations.",
+          "source_quality": "Government tourism authority; high"
+        },
+        {
+          "source": "Uttarakhand Tourism: Mussoorie",
+          "organization": "Uttarakhand Tourism",
+          "url": "https://www.uttarakhandtourism.gov.in/destination/mussoorie",
+          "information_supported": "Mussoorie positioning, access and destination characteristics.",
+          "source_quality": "Government tourism authority; high"
+        },
+        {
+          "source": "Noise Pollution Rules",
+          "organization": "Uttarakhand Pollution Control Board",
+          "url": "https://ukpcb.uk.gov.in/home/url?id=1154&menu_type=submaintwo",
+          "information_supported": "Written permission, sound restrictions and night-time rules.",
+          "source_quality": "Regulatory authority; high"
+        },
+        {
+          "source": "FSSAI Licensing and Registration FAQ",
+          "organization": "Food Safety and Standards Authority of India",
+          "url": "https://mail.fssai.gov.in/upload/uploadfiles/files/FAQs_Licensing_Registration_21_12_2022.pdf",
+          "information_supported": "Caterer licensing requirements for marriages and parties.",
+          "source_quality": "Regulatory authority; high"
+        },
+        {
+          "source": "FSSAI Catering Sector Guidance",
+          "organization": "Food Safety and Standards Authority of India",
+          "url": "https://www.fssai.gov.in/upload/uploadfiles/files/Guidance_Document_Catering_Sector_19_01_2018%281%29.pdf",
+          "information_supported": "Food-safety management, hygiene, storage, handling and catering controls.",
+          "source_quality": "Regulatory authority; high"
+        },
+        {
+          "source": "Hyatt Regency Dehradun Weddings",
+          "organization": "Hyatt Hotels Corporation",
+          "url": "https://www.hyatt.com/hyatt-regency/en-US/delrh-hyatt-regency-dehradun/weddings",
+          "information_supported": "Event spaces, capacities, location and hotel wedding positioning.",
+          "source_quality": "Official company source; high for published venue facts"
+        },
+        {
+          "source": "Le Méridien Dehradun Events",
+          "organization": "Marriott International",
+          "url": "https://www.marriott.com/en-us/hotels/dedmd-le-meridien-dehradun-resort-and-spa/events/",
+          "information_supported": "Event-room count, capacities and event-space configurations.",
+          "source_quality": "Official company source; high for published venue facts"
+        },
+        {
+          "source": "Fairfield Dehradun Events",
+          "organization": "Marriott International",
+          "url": "https://www.marriott.com/en-us/hotels/dedfi-fairfield-dehradun/events/",
+          "information_supported": "Event-room count, capacity and wedding-planner support.",
+          "source_quality": "Official company source; high for published venue facts"
+        },
+        {
+          "source": "Vasdaa Grand",
+          "organization": "Vasdaa Grand",
+          "url": "https://vasdaa.com/",
+          "information_supported": "Rooms, event space, capacity, location, indicative room pricing and wedding positioning.",
+          "source_quality": "Official company source; moderate to high for supplier-published facts"
+        },
+        {
+          "source": "Seyfert Sarovar Premiere Meetings and Events",
+          "organization": "Sarovar Hotels",
+          "url": "https://www.sarovarhotels.com/seyfert-sarovar-premiere-dehradun/banquets-conferences/meetings-events.html",
+          "information_supported": "Hotel banquet and wedding positioning.",
+          "source_quality": "Official company source; moderate"
+        },
+        {
+          "source": "The Pearl Grand Events and Celebrations",
+          "organization": "The Pearl Grand",
+          "url": "https://www.thepearlgrand.in/halls-and-gardens",
+          "information_supported": "Banquet, lawn and maximum published capacity.",
+          "source_quality": "Official company source; moderate"
+        },
+        {
+          "source": "The VEHding Co.",
+          "organization": "Vishesh Events & Hospitality",
+          "url": "https://www.vehdings.com/",
+          "information_supported": "Local planning, decor, hospitality, guest management, venue selection and package starting points.",
+          "source_quality": "Official supplier source; moderate"
+        },
+        {
+          "source": "Dehradun Wedding Planners",
+          "organization": "Dehradun Wedding Planners",
+          "url": "https://dehradunweddingplanners.com/",
+          "information_supported": "Local planning, venue, decor, catering, entertainment, coordination and package starting price.",
+          "source_quality": "Official supplier source; moderate"
+        },
+        {
+          "source": "Samadhan Event Planners",
+          "organization": "Samadhan Event Planners",
+          "url": "https://samadhanpartymaker.com/",
+          "information_supported": "Local planning, catering, decor, live counters and self-reported experience.",
+          "source_quality": "Official supplier source; moderate"
+        },
+        {
+          "source": "SEBI-hosted wedding-industry document",
+          "organization": "Securities and Exchange Board of India",
+          "url": "https://www.sebi.gov.in/sebi_data/attachdocs/jul-2025/1751455806758_838.pdf",
+          "information_supported": "National wedding-volume and spending estimates cited in an investment-sector document.",
+          "source_quality": "Regulatory-hosted secondary source; moderate"
+        }
+      ]
+    },
+    "business_intelligence": {
+      "market_characteristics": [
+        {
+          "finding": "Dehradun serves distinct luxury, hotel-banquet, mid-market and independent-venue wedding segments.",
+          "evidence": "Published capacities range from 300 guests at Fairfield to above 1,000 at Vasdaa Grand, with multiple hotel and lawn formats.",
+          "implication": "Venue selection can be matched to guest scale, service expectations and desired accommodation model.",
+          "evidence_strength": "Strong for observed market structure; pricing and availability remain unverified."
+        },
+        {
+          "finding": "The market combines accessible city infrastructure with destination-wedding potential.",
+          "evidence": "Dehradun connects by air, rail and road and serves as a gateway to Mussoorie, Haridwar and Rishikesh.",
+          "implication": "The wedding can attract out-of-town guests without requiring a fully remote destination format.",
+          "evidence_strength": "Strong for accessibility; destination demand is not quantified."
+        },
+        {
+          "finding": "Venue economics are highly seasonal because monsoon weather increases outdoor execution risk.",
+          "evidence": "Mean rainfall reaches 621.6 mm in July and 714.9 mm in August, versus 5.2 mm in November.",
+          "implication": "Indoor capacity and dependable rain alternatives materially affect delivered value and event reliability.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "finding": "Published supplier pricing is fragmented and rarely represents a complete wedding cost.",
+          "evidence": "Planner starting prices range from approximately INR 3 lakh to INR 10 lakh, excluding many venue and production costs.",
+          "implication": "Headline prices cannot support reliable comparisons between venue, planner or wedding formats.",
+          "evidence_strength": "Moderate to strong."
+        },
+        {
+          "finding": "National wedding-market estimates indicate scale but cannot size Dehradun demand.",
+          "evidence": "A SEBI-hosted document cites approximately 8 million Indian weddings annually and INR 8,000-16,000 billion in spending.",
+          "implication": "The broader market supports supplier depth, but local budgeting must rely on the actual guest list and quotations.",
+          "evidence_strength": "Moderate nationally; weak for Dehradun."
+        }
+      ],
+      "demand_analysis": [
+        {
+          "finding": "Mixed local and destination guest lists increase demand for coordinated hospitality services.",
+          "evidence": "Planners market arrival coordination, accommodation, transfers and guest movement alongside venue and event management.",
+          "implication": "Guest logistics are a core experience requirement, not merely an administrative function.",
+          "evidence_strength": "Strong for operational need; willingness to pay is unverified."
+        },
+        {
+          "finding": "Families increasingly value centralized functions that reduce travel and coordination friction.",
+          "evidence": "Hotel resorts combine rooms, event spaces, catering and service teams within one property.",
+          "implication": "A centralized format may improve satisfaction across both families, especially for elderly and out-of-town guests.",
+          "evidence_strength": "Moderate."
+        },
+        {
+          "finding": "Customers are likely to prioritize food, comfort and ceremony execution over uniform premium styling.",
+          "evidence": "Supplier positioning shows tiered service levels, while family requirements emphasize food quality, hospitality and traditional ceremonies.",
+          "implication": "Perceived value depends on selectively protecting high-emotion and high-risk experience elements.",
+          "evidence_strength": "Moderate; direct customer elasticity data is unavailable."
+        },
+        {
+          "finding": "Accessibility and elderly support are important unmet requirements in venue buying.",
+          "evidence": "Most reviewed venue pages publish capacities but provide limited information on accessible rooms, washrooms, seating and medical support.",
+          "implication": "Site-level accessibility can materially influence family satisfaction and venue suitability.",
+          "evidence_strength": "Strong as a planning requirement; venue-specific evidence is limited."
+        },
+        {
+          "finding": "Two-family decision complexity creates demand for clear governance and coordinated communication.",
+          "evidence": "Multiple rituals, guest lists, budgets and vendor instructions typically involve decision-makers from both families.",
+          "implication": "Alignment quality may affect the experience as much as venue or supplier quality.",
+          "evidence_strength": "Moderate to strong operational inference."
+        }
+      ],
+      "development_analysis": [
+        {
+          "finding": "Local suppliers are expanding from single services toward integrated wedding-experience models.",
+          "evidence": "Planners increasingly combine venue selection, decor, catering coordination, hospitality, transfers and on-site execution.",
+          "implication": "Competitive differentiation is shifting from decoration alone toward end-to-end delivery accountability.",
+          "evidence_strength": "Moderate."
+        },
+        {
+          "finding": "Premium venues are investing in multi-format spaces for segregated wedding functions.",
+          "evidence": "Le Méridien lists seven event rooms, while Hyatt and other resorts offer ballroom, hall and lawn combinations.",
+          "implication": "Multi-function flexibility is becoming a meaningful competitive feature for complex weddings.",
+          "evidence_strength": "Strong for published venue configurations."
+        },
+        {
+          "finding": "Digital guest coordination is an emerging operating model rather than a measured local standard.",
+          "evidence": "Research supports coordination needs, but reliable evidence of local adoption of QR registration, wedding websites or command centres is limited.",
+          "implication": "Digital tools may improve execution, but adoption and guest response require validation.",
+          "evidence_strength": "Weak to moderate."
+        },
+        {
+          "finding": "Food-safety compliance is becoming a formal supplier-selection requirement.",
+          "evidence": "FSSAI requires caterers serving marriages or parties to hold a licence or registration and follow catering controls.",
+          "implication": "Compliance affects vendor eligibility and protects guest health, reputation and event continuity.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "finding": "Venue competition is broadening across branded resorts, independent lawns and local planning companies.",
+          "evidence": "The market includes Hyatt, Le Méridien, Fairfield, Vasdaa, banquet venues and several integrated local planners.",
+          "implication": "Customers face more format choice, increasing the importance of comparable evaluation criteria.",
+          "evidence_strength": "Strong for observed supplier landscape."
+        }
+      ],
+      "customer_analysis": [
+        {
+          "segment": "Local Dehradun families",
+          "needs": [
+            "Convenient access",
+            "Traditional ceremonies",
+            "Reliable food quality",
+            "Family-friendly venue reputation"
+          ],
+          "pain_points": [
+            "Traffic and parking",
+            "Complex multi-function coordination",
+            "Conflicting family preferences"
+          ],
+          "purchase_drivers": [
+            "Local reputation",
+            "Catering quality",
+            "Ease of family participation",
+            "Transparent pricing"
+          ],
+          "behavior": "Likely to compare familiar banquet and hotel options while retaining strong influence over rituals, food and guest hosting.",
+          "implication": "Local convenience and cultural fit must remain central even when adopting a destination-style format.",
+          "evidence_strength": "Moderate; direct customer survey evidence was not located."
+        },
+        {
+          "segment": "Out-of-town and destination guests",
+          "needs": [
+            "Room blocks",
+            "Airport and railway transfers",
+            "Centralized functions",
+            "Hospitality desk"
+          ],
+          "pain_points": [
+            "Unclear room allocation",
+            "Transfer delays",
+            "Dispersed venues",
+            "Poor arrival communication"
+          ],
+          "purchase_drivers": [
+            "Integrated accommodation",
+            "Transport coordination",
+            "Convenient location",
+            "Guest service quality"
+          ],
+          "behavior": "More dependent on hosts for logistics and more sensitive to travel friction than local guests.",
+          "implication": "Guest movement and accommodation quality directly affect the perceived success of the wedding.",
+          "evidence_strength": "Strong for operational needs."
+        },
+        {
+          "segment": "Elderly, children and differently abled guests",
+          "needs": [
+            "Short walking distances",
+            "Accessible rooms and washrooms",
+            "Nearby seating",
+            "Shaded waiting areas",
+            "Reliable drop-offs"
+          ],
+          "pain_points": [
+            "Long walks",
+            "Stairs and uneven surfaces",
+            "Heat or rain exposure",
+            "Insufficient seating"
+          ],
+          "purchase_drivers": [
+            "Physical accessibility",
+            "Comfort",
+            "Safety",
+            "Visible family support"
+          ],
+          "behavior": "Less tolerant of dispersed layouts and weather exposure, with needs often raised late unless deliberately planned.",
+          "implication": "Accessibility gaps can disproportionately damage family satisfaction despite strong overall event production.",
+          "evidence_strength": "Strong as a planning requirement; venue evidence is limited."
+        },
+        {
+          "segment": "Bride's and groom's families",
+          "needs": [
+            "Shared decision process",
+            "Budget clarity",
+            "Ritual alignment",
+            "Consistent vendor communication"
+          ],
+          "pain_points": [
+            "Budget disputes",
+            "Conflicting invitations",
+            "Different food or music preferences",
+            "Approval delays"
+          ],
+          "purchase_drivers": [
+            "Trust",
+            "Control",
+            "Cultural fit",
+            "Execution confidence"
+          ],
+          "behavior": "Multiple stakeholders influence purchases, making emotional priorities and authority structures as important as price.",
+          "implication": "The operating model must protect both families' priorities while preventing contradictory instructions.",
+          "evidence_strength": "Moderate to strong."
+        }
+      ],
+      "competitive_analysis": [
+        {
+          "competitor": "Hyatt Regency Dehradun Resort and Spa",
+          "type": "Luxury hotel and resort venue",
+          "positioning": "Premium, large-format, accommodation-led wedding venue.",
+          "strengths": [
+            "33,529 square feet of event space",
+            "700-guest ballroom",
+            "450-guest lawn",
+            "Dedicated events team"
+          ],
+          "gaps": [
+            "Pricing and room-block terms unpublished",
+            "Outside-vendor policy unconfirmed",
+            "Rain-plan and parking details require verification"
+          ],
+          "implication": "Strong fit for a premium, centralized wedding if commercial and weather terms are acceptable.",
+          "evidence_strength": "Strong for published venue facts."
+        },
+        {
+          "competitor": "Le Méridien Dehradun Resort & Spa",
+          "type": "Luxury resort and hotel venue",
+          "positioning": "Flexible multi-function resort with several halls and lawns.",
+          "strengths": [
+            "Seven event rooms",
+            "925 square metres of event space",
+            "500-guest largest reception",
+            "Multiple ceremony configurations"
+          ],
+          "gaps": [
+            "Food minimums unconfirmed",
+            "Room inventory unconfirmed",
+            "Vendor restrictions and backup arrangements unclear"
+          ],
+          "implication": "Compelling for weddings requiring separate spaces for ceremonies, meals and receptions.",
+          "evidence_strength": "Strong for published venue facts."
+        },
+        {
+          "competitor": "Vasdaa Grand",
+          "type": "Destination-style hotel and wedding venue",
+          "positioning": "Compact, on-site destination wedding with substantial capacity.",
+          "strengths": [
+            "64 rooms",
+            "28,000 square feet of event space",
+            "Capacity above 1,000 guests",
+            "Indicative room pricing published"
+          ],
+          "gaps": [
+            "Availability and package inclusions unconfirmed",
+            "Published pricing is date-dependent",
+            "Actual event layouts require validation"
+          ],
+          "implication": "Strong option when accommodation concentration and large guest capacity outweigh brand prestige.",
+          "evidence_strength": "Strong for supplier-published facts."
+        },
+        {
+          "competitor": "Fairfield by Marriott Dehradun",
+          "type": "Upper-midscale hotel and banquet venue",
+          "positioning": "Professional hotel execution for smaller and medium-sized functions.",
+          "strengths": [
+            "Five event rooms",
+            "300-guest largest capacity",
+            "Marriott wedding-planner support",
+            "Integrated accommodation"
+          ],
+          "gaps": [
+            "Wedding pricing unpublished",
+            "Room-block terms unconfirmed",
+            "Outside-catering rules unclear"
+          ],
+          "implication": "Suitable where service reliability and moderate scale matter more than luxury-resort positioning.",
+          "evidence_strength": "Strong for published venue facts."
+        },
+        {
+          "competitor": "Local integrated wedding planners",
+          "type": "Planning, decor and hospitality providers",
+          "positioning": "Flexible end-to-end coordination across venue, vendors, decor and guest experience.",
+          "strengths": [
+            "Local supplier networks",
+            "Customization",
+            "On-site coordination",
+            "Potentially broader venue choice"
+          ],
+          "gaps": [
+            "Self-reported experience claims",
+            "Package inclusions vary",
+            "References and service protections require verification"
+          ],
+          "implication": "Can reduce family coordination burden, but value depends on measurable deliverables and contract discipline.",
+          "evidence_strength": "Moderate."
+        }
+      ],
+      "trend_analysis": [
+        {
+          "trend": "Integrated destination-style wedding experiences",
+          "evidence": "Hotels and planners increasingly combine rooms, event spaces, transfers, hospitality, decor and execution.",
+          "implication": "Guest experience is increasingly judged across the complete journey rather than the ceremony alone.",
+          "evidence_strength": "Moderate."
+        },
+        {
+          "trend": "Personalized premium wedding production",
+          "evidence": "Supplier positioning emphasizes themed decor, curated food, entertainment, customized concepts and managed guest journeys.",
+          "implication": "Differentiation increasingly depends on personalization and consistency across multiple touchpoints.",
+          "evidence_strength": "Moderate."
+        },
+        {
+          "trend": "Weather-resilient event planning",
+          "evidence": "High June-September rainfall makes indoor alternatives, covered movement and waterproof production increasingly important.",
+          "implication": "Weather resilience is a core quality dimension for Dehradun weddings, not a contingency-only concern.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "trend": "Formalization of food-safety and vendor compliance",
+          "evidence": "FSSAI licensing and catering guidance specify requirements for marriage and party caterers.",
+          "implication": "Compliance is becoming part of supplier qualification and reputational risk control.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "trend": "Preference for lower-travel, centralized formats",
+          "evidence": "Dehradun offers airport, rail and road access, while hill destinations introduce additional travel complexity.",
+          "implication": "Centralized Dehradun venues may gain preference among mixed-age and mixed-origin guest groups.",
+          "evidence_strength": "Moderate."
+        }
+      ],
+      "opportunity_analysis": [
+        {
+          "opportunity": "Two-family wedding governance",
+          "customer_problem": "Families may issue conflicting instructions or disagree over budgets, rituals and guest priorities.",
+          "market_reason": "Local planners increasingly sell coordination, hospitality and vendor management because multi-function weddings create execution complexity.",
+          "evidence": "Research identifies family conflict, duplicated instructions and approval delays as material execution risks.",
+          "implication": "A shared brief, decision calendar and authority model can improve experience consistency across both sides.",
+          "evidence_strength": "Strong operational inference."
+        },
+        {
+          "opportunity": "Centralized accommodation with controlled overflow",
+          "customer_problem": "Guests need convenient lodging without forcing every attendee into the highest-cost property.",
+          "market_reason": "Dehradun combines accessible transport with hotels offering rooms and event infrastructure.",
+          "evidence": "Hotel and resort venues support on-site stays, while the city provides nearby accommodation alternatives.",
+          "implication": "A hub-and-overflow model can balance hospitality quality, travel convenience and room-cost control.",
+          "evidence_strength": "Moderate."
+        },
+        {
+          "opportunity": "Weather-resilient venue formats",
+          "customer_problem": "Rain or heat can disrupt ceremonies, decor, guest movement and photography.",
+          "market_reason": "Monsoon rainfall is substantial, while several competing hotels advertise both indoor and outdoor event spaces.",
+          "evidence": "July and August average more than 600 mm of rainfall and over 20 rainy days.",
+          "implication": "Reliable indoor alternatives can create meaningful experience and execution advantage.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "opportunity": "Dedicated guest-experience management",
+          "customer_problem": "Arrivals, room allocation, dietary needs, elderly support and transport can overwhelm family hosts.",
+          "market_reason": "Destination-style suppliers already position hospitality and guest movement as paid service components.",
+          "evidence": "Planner offerings explicitly include arrival, accommodation and guest coordination.",
+          "implication": "Dedicated ownership of guest care can reduce friction and protect both families' hosting experience.",
+          "evidence_strength": "Moderate to strong."
+        }
+      ],
+      "risk_analysis": [
+        {
+          "risk": "Weather disruption to outdoor functions",
+          "potential_impact": "Ceremony delays, damaged decor, guest discomfort and additional emergency costs.",
+          "evidence": "Dehradun averages 621.6 mm rainfall in July and 714.9 mm in August, with more than 20 rainy days monthly.",
+          "implication": "Outdoor dependence creates substantial execution exposure during monsoon dates.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "risk": "Noise-permission and late-night restrictions",
+          "potential_impact": "DJ, band, baraat or outdoor entertainment may be curtailed or penalized.",
+          "evidence": "Written permission is required for loudspeakers, and night use is generally restricted between 10:00 p.m. and 6:00 a.m.",
+          "implication": "Entertainment expectations may conflict with regulatory limits unless timing and permissions are confirmed.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "risk": "Food-safety or catering compliance failure",
+          "potential_impact": "Guest illness, reputational damage, regulatory action and event disruption.",
+          "evidence": "FSSAI requires caterers serving marriages or parties to hold a licence or registration.",
+          "implication": "Catering compliance is a non-negotiable control for guest safety and business continuity.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "risk": "Hidden costs and budget escalation",
+          "potential_impact": "Unplanned spending on taxes, overtime, power, rain structures, transport, corkage and guest-count changes.",
+          "evidence": "Published prices are generally starting points and exclude many comparable cost components.",
+          "implication": "Headline quotations can materially understate the delivered wedding budget.",
+          "evidence_strength": "Strong procurement inference."
+        },
+        {
+          "risk": "Family or vendor coordination failure",
+          "potential_impact": "Delayed decisions, inconsistent instructions, missed rituals and reduced satisfaction for both families.",
+          "evidence": "Multiple stakeholders, functions and suppliers create overlapping approval and communication dependencies.",
+          "implication": "Execution risk rises when authority, deliverables, backups and escalation routes are undefined.",
+          "evidence_strength": "Strong operational inference."
+        }
+      ],
+      "evidence_assessment": {
+        "strong_evidence": [
+          "Dehradun connectivity and airport access from government sources.",
+          "Monthly rainfall and rainy-day statistics from the India Meteorological Department.",
+          "Published venue capacities and event-space configurations from official hotel sources.",
+          "FSSAI catering licensing and food-safety requirements.",
+          "Noise-permission and night-time sound restrictions from the Uttarakhand Pollution Control Board.",
+          "Observed operational risks involving weather, accessibility, contracting and coordination."
+        ],
+        "moderate_evidence": [
+          "Market segmentation across luxury resorts, hotels, lawns and planners.",
+          "Growing relevance of integrated planning and hospitality services.",
+          "Likely preferences of local, destination and value-conscious families.",
+          "Potential preference for centralized venues and lower-travel formats.",
+          "Supplier positioning around premium personalization and guest experience."
+        ],
+        "weak_evidence": [
+          "Dehradun-specific wedding demand, annual volume and market growth.",
+          "Average total wedding budgets, guest counts and customer price elasticity.",
+          "Local adoption of digital wedding technology.",
+          "Independent comparative performance data for planners and vendors.",
+          "Quantitative customer satisfaction by family or guest segment."
+        ],
+        "contradictions": [
+          "Airport distance is reported as approximately 20 km from the city centre by the district administration and approximately 25 km south-east by the Airports Authority of India.",
+          "National wedding-spending estimates vary substantially because sources define wedding expenditure differently.",
+          "Venue and planner capacities or package prices are supplier-published and may not be directly comparable."
+        ],
+        "important_gaps": [
+          "Preferred date, guest count, budget, rituals, cuisine, alcohol policy and room-allocation requirements are unknown.",
+          "Date-specific venue availability, room blocks, minimum spends, taxes and cancellation terms are unavailable.",
+          "Comparable quotations for catering, decor, photography, makeup, entertainment, transport and accommodation are unavailable.",
+          "Accessibility, medical support, fire approvals, evacuation plans and generator capacity require direct venue verification.",
+          "Current permits for sound, fireworks, baraat routes, alcohol and temporary structures require confirmation.",
+          "Independent references and recent comparable-wedding performance evidence for local suppliers are limited."
+        ]
+      }
+    },
+    "strategic_synthesis": {
+      "executive_summary": "Plan the wedding as a centralized, hospitality-led experience rather than a series of disconnected functions. Prioritize a venue with dependable indoor and outdoor options, sufficient accommodation, strong accessibility, and clear commercial terms. Establish one joint decision process for both families, assign a dedicated guest-experience lead, and lock down weather, food-safety, permissions, and vendor-contingency controls before committing major spend.",
+      "key_findings": [
+        {
+          "finding": "Dehradun offers multiple venue formats, from luxury resorts and large destination-style properties to mid-market hotels and independent venues.",
+          "why_it_matters": "The right choice depends less on brand alone and more on guest count, room requirements, function separation, family expectations, and budget.",
+          "evidence_strength": "Strong for market structure; pricing and availability remain unverified."
+        },
+        {
+          "finding": "The city is accessible for local and out-of-town guests, but guest movement and accommodation still require deliberate coordination.",
+          "why_it_matters": "Arrival, room allocation, transfers, and venue movement will materially shape the experience for the groom's and bride's families.",
+          "evidence_strength": "Strong for accessibility and operational need."
+        },
+        {
+          "finding": "Monsoon conditions create significant execution risk for outdoor ceremonies and guest movement.",
+          "why_it_matters": "A visually attractive outdoor plan can fail through rain, delays, damaged production, or guest discomfort unless an equivalent indoor plan is ready.",
+          "evidence_strength": "Strong."
+        },
+        {
+          "finding": "Published wedding prices are incomplete and difficult to compare.",
+          "why_it_matters": "Quoted venue or planner prices may exclude taxes, minimum spends, overtime, generators, rain cover, transport, corkage, and guest-count changes.",
+          "evidence_strength": "Strong procurement inference."
+        },
+        {
+          "finding": "The wedding involves several stakeholder groups with different priorities, including both families, elderly guests, children, and destination attendees.",
+          "why_it_matters": "Without agreed decision rights and a shared brief, conflicting instructions can affect rituals, food, invitations, vendor performance, and budget control.",
+          "evidence_strength": "Moderate to strong operational inference."
+        },
+        {
+          "finding": "Food-safety compliance, sound restrictions, accessibility, and emergency readiness are practical delivery requirements, not administrative details.",
+          "why_it_matters": "Failures in these areas can cause health incidents, cancelled entertainment, reputational damage, or serious discomfort for vulnerable guests.",
+          "evidence_strength": "Strong for compliance and weather; venue-specific readiness requires validation."
+        }
+      ],
+      "strategic_implications": [
+        {
+          "implication": "Select the wedding format before selecting suppliers: centralized resort, hotel hub with overflow rooms, or multi-venue city format.",
+          "based_on": "Venue segmentation, city accessibility, accommodation needs, and the benefits of lower guest travel.",
+          "business_meaning": "A centralized or hub-and-overflow model is likely to deliver the most consistent experience for mixed-age and out-of-town guests."
+        },
+        {
+          "implication": "Treat the rain plan as part of the primary design, not as an emergency fallback.",
+          "based_on": "High July-August rainfall and the operational risks of outdoor ceremonies and production.",
+          "business_meaning": "The preferred venue must be judged on its wet-weather experience, covered movement, power, drainage, and indoor capacity."
+        },
+        {
+          "implication": "Protect experience-critical spending while controlling low-visibility extras.",
+          "based_on": "Customer emphasis on food, comfort, ceremonies, hospitality, and fragmented supplier pricing.",
+          "business_meaning": "Prioritize catering, guest care, accessibility, photography, sound, and ceremony execution before discretionary styling upgrades."
+        },
+        {
+          "implication": "Use a formal two-family governance model with one operating point of contact.",
+          "based_on": "Multiple decision-makers, conflicting preferences, and the growing role of integrated planners.",
+          "business_meaning": "Clear authority and communication will reduce stress and prevent inconsistent instructions during the planning period and event."
+        }
+      ],
+      "priority_opportunities": [
+        {
+          "opportunity": "Create a centralized guest-hospitality program.",
+          "why_it_matters": "Out-of-town guests and elderly family members are especially sensitive to transfer delays, unclear room assignments, long walks, and poor arrival support.",
+          "supporting_finding": "Accessibility and hospitality are material unmet requirements, while Dehradun supports accommodation-led wedding formats.",
+          "execution_considerations": "Appoint a hospitality lead, prepare rooming and transfer manifests, provide an arrival desk, assign family hosts, and arrange accessible rooms, seating, golf carts or close drop-offs where needed."
+        },
+        {
+          "opportunity": "Use a hub-and-overflow accommodation model.",
+          "why_it_matters": "It can preserve a unified guest experience while avoiding the cost of placing every guest in the most expensive property.",
+          "supporting_finding": "Dehradun has integrated hotel venues and nearby accommodation alternatives.",
+          "execution_considerations": "Keep the couple, immediate family, elderly guests, and key vendors at the hub; place overflow guests nearby with scheduled shuttles and equivalent service standards."
+        },
+        {
+          "opportunity": "Build a weather-resilient wedding design.",
+          "why_it_matters": "Reliable execution can become a stronger differentiator than additional decoration, particularly during monsoon dates.",
+          "supporting_finding": "Rainfall is substantial in July and August and competing venues vary in indoor-outdoor flexibility.",
+          "execution_considerations": "Require an indoor version of every function, covered guest routes, waterproof power and production plans, drainage checks, and a decision deadline for switching formats."
+        },
+        {
+          "opportunity": "Install a dedicated joint family command structure.",
+          "why_it_matters": "It protects the bride's and groom's families from operational overload and reduces contradictory decisions.",
+          "supporting_finding": "Family coordination failure is a recognized execution risk and integrated planners increasingly provide on-site management.",
+          "execution_considerations": "Create one shared brief, a decision matrix, weekly approvals, a single vendor instruction channel, and an event-day command centre with escalation rules."
+        }
+      ],
+      "priority_risks": [
+        {
+          "risk": "Outdoor functions are disrupted by rain, heat, or unsafe guest movement.",
+          "why_it_matters": "This can damage production, delay rituals, reduce comfort, and create emergency costs.",
+          "mitigation": "Choose a venue with credible indoor capacity; contract the rain infrastructure in advance; test drainage, power, access routes, and wet-weather layouts."
+        },
+        {
+          "risk": "The final budget materially exceeds the apparent quotation.",
+          "why_it_matters": "Incomplete packages can create family disputes and force late compromises on high-value experience elements.",
+          "mitigation": "Request an all-in comparison including taxes, minimum spends, rooms, meals, overtime, power, permits, transport, rain cover, corkage, service charges, and cancellation terms."
+        },
+        {
+          "risk": "Family instructions or approvals conflict.",
+          "why_it_matters": "The result may be missed rituals, duplicated purchases, vendor confusion, and dissatisfaction on either side.",
+          "mitigation": "Nominate one authorized representative from each family, define decision rights, freeze approved plans, and route all supplier changes through the command structure."
+        },
+        {
+          "risk": "Food, sound, alcohol, fireworks, or late-night entertainment fails compliance checks.",
+          "why_it_matters": "A compliance issue can interrupt the event or create health, legal, and reputational consequences.",
+          "mitigation": "Verify caterer FSSAI credentials, obtain written venue and local permissions, confirm sound cut-off times, and document responsibility for every permit."
+        },
+        {
+          "risk": "Elderly, child, or differently abled guests experience avoidable discomfort or safety problems.",
+          "why_it_matters": "A small accessibility failure can disproportionately affect family satisfaction.",
+          "mitigation": "Conduct a physical site audit covering stairs, distances, washrooms, seating, shade, lighting, medical support, parking, and emergency evacuation."
+        }
+      ],
+      "recommended_actions": [
+        {
+          "priority": "1",
+          "action": "Agree a one-page wedding brief covering date flexibility, guest count by function, rituals, cuisine, accommodation, alcohol, entertainment, accessibility, and budget ceiling.",
+          "based_on_finding": "Family priorities and guest requirements are currently undefined, while venue suitability depends on scale and format.",
+          "reason": "Without this brief, venue and supplier comparisons will not be meaningful.",
+          "expected_impact": "Faster decisions, fewer family disputes, and better-fit venue shortlisting.",
+          "implementation_note": "Obtain sign-off from one empowered representative of each family before requesting final quotations."
+        },
+        {
+          "priority": "2",
+          "action": "Shortlist three venue models: a premium centralized resort, a multi-function hotel, and a value-oriented hotel or venue with nearby accommodation.",
+          "based_on_finding": "Dehradun offers distinct venue segments and centralized formats reduce travel friction.",
+          "reason": "A structured comparison prevents brand preference from replacing experience and value assessment.",
+          "expected_impact": "Clear trade-off between hospitality, capacity, cost, flexibility, and prestige.",
+          "implementation_note": "Score each venue on indoor backup, rooms, accessibility, catering, parking, power, permissions, and total delivered cost."
+        },
+        {
+          "priority": "3",
+          "action": "Conduct an on-site operational audit before placing any deposit.",
+          "based_on_finding": "Published venue information does not adequately cover accessibility, emergency readiness, rain plans, parking, or generators.",
+          "reason": "Site execution quality cannot be inferred from capacity or marketing materials.",
+          "expected_impact": "Lower risk of guest discomfort, delays, production failure, and hidden charges.",
+          "implementation_note": "Visit during a comparable time of day and test the actual routes between rooms, ceremony spaces, dining, parking, and washrooms."
+        },
+        {
+          "priority": "4",
+          "action": "Request an all-in, function-by-function commercial proposal from venues and planners.",
+          "based_on_finding": "Published prices are fragmented and often exclude material delivery costs.",
+          "reason": "Comparable total-cost visibility is essential before committing to a format.",
+          "expected_impact": "Reduced budget escalation and more credible supplier negotiation.",
+          "implementation_note": "Require inclusions, exclusions, taxes, minimum guarantees, overtime, cancellation, weather contingencies, vendor restrictions, and payment milestones in writing."
+        },
+        {
+          "priority": "5",
+          "action": "Appoint one lead planner or wedding operations manager, supported by a representative from each family.",
+          "based_on_finding": "Integrated coordination is valuable and two-family decision complexity is a major execution risk.",
+          "reason": "Family members should host and enjoy the wedding rather than manage suppliers and guest incidents.",
+          "expected_impact": "Improved accountability, quicker issue resolution, and a more consistent experience for both sides.",
+          "implementation_note": "Use a written scope covering guest logistics, vendor control, run-of-show, approvals, contingency response, and event-day staffing."
+        },
+        {
+          "priority": "6",
+          "action": "Lock compliance and contingency controls at least before final vendor contracting.",
+          "based_on_finding": "Food-safety, sound restrictions, weather, and hidden operational dependencies can disrupt delivery.",
+          "reason": "These are high-impact risks with limited recovery time during the wedding.",
+          "expected_impact": "Greater continuity, guest safety, and confidence in the event plan.",
+          "implementation_note": "Collect FSSAI documentation, permit responsibilities, backup vendor contacts, medical support details, generator capacity, and a written rain-switch protocol."
+        }
+      ],
+      "decision_takeaway": "Choose the venue and operating model that best protect guest comfort, family alignment, and weather resilience—not simply the venue with the largest capacity or most attractive decor. The next commitment should follow a signed shared brief, a site audit, and an all-in commercial comparison. A centralized venue with controlled overflow accommodation and professional on-site coordination is the strongest default approach for delivering a great experience to both families.",
+      "what_to_validate_next": [
+        "Wedding date or date range, total guests, function-wise guest counts, and budget ceiling.",
+        "Bride's and groom's family priorities, ritual requirements, cuisine preferences, alcohol policy, and entertainment expectations.",
+        "Date-specific availability, room blocks, minimum spends, taxes, payment schedules, cancellation terms, and vendor restrictions for shortlisted venues.",
+        "Indoor backup capacity, covered movement, drainage, generator capacity, parking, accessibility, medical support, fire safety, and evacuation arrangements.",
+        "Caterer FSSAI licence or registration, menu tasting results, dietary capability, service staffing, hygiene controls, and food replacement procedures.",
+        "Sound, baraat, fireworks, alcohol, temporary-structure, and late-night entertainment permissions.",
+        "Independent references from at least two recent comparable weddings for each planner and key vendor.",
+        "Actual transfer times and overflow hotel options from the airport, railway station, venue, and accommodation hub.",
+        "A complete cost comparison for venue, rooms, catering, decor, production, photography, makeup, entertainment, transport, permits, contingency, and taxes.",
+        "Named decision-makers, approval deadlines, planner scope, event-day staffing, and escalation procedures for both families."
+      ],
+      "research_confidence": "Moderate to high for venue-market structure, accessibility, rainfall, compliance requirements, and operational risks; moderate for customer preferences and integrated wedding-service trends; low for local demand, total budgets, price elasticity, and comparative supplier performance.",
+      "research_limitations": [
+        "No confirmed wedding date, guest count, budget, rituals, or accommodation requirements were provided.",
+        "Venue capacities and package information are primarily supplier-published and are not directly comparable until verified through quotations and site visits.",
+        "Dehradun-specific wedding demand, average budgets, customer satisfaction, and supplier market share were not quantified.",
+        "Pricing, availability, minimum spends, taxes, room blocks, vendor restrictions, and cancellation terms remain unverified.",
+        "Accessibility, medical support, emergency systems, permissions, and actual rain-plan quality require direct venue validation.",
+        "Independent performance references for local planners and vendors are limited."
+      ]
+    }
+  }
+}

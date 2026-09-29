@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+research_report.txt
+research_report.md
+sage_research_data.json
