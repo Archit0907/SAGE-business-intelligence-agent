@@ -2702,8 +2702,17 @@ def render_research_brief(compact=False):
 existing_report = bool(st.session_state.get("sage_data")) or bool(st.query_params.get("history"))
 show('<div id="research-brief" class="sg-brief-shell"></div>')
 if existing_report:
-    with st.expander("Create a new research brief", expanded=False):
-        start, business_problem, target_market, business_decision = render_research_brief(compact=True)
+    if st.button("Create a new research brief", key="new_brief_reset"):
+        if "history" in st.query_params:
+            del st.query_params["history"]
+        st.session_state.pop("sage_data", None)
+        st.session_state.pop("sage_brief", None)
+        st.session_state.pop("sage_copilot_report_key", None)
+        st.session_state.pop("sage_copilot_messages", None)
+        st.session_state.pop("comparison_ready", None)
+        st.session_state.pop("comparison_data", None)
+        st.rerun()
+    start, business_problem, target_market, business_decision = False, "", "", ""
 else:
     start, business_problem, target_market, business_decision = render_research_brief()
 
