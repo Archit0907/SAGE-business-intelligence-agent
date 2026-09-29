@@ -10,6 +10,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import streamlit as st
+import streamlit.components.v1 as components
 import plotly.graph_objects as go
 from openai import OpenAI
 from evidence_intelligence import (
@@ -3092,6 +3093,7 @@ def render_comparison_controls():
 
         st.session_state["comparison_data"] = comparison_data
         st.session_state["comparison_ready"] = True
+        st.session_state["scroll_to_comparison_results"] = True
 
 
 def render_research_comparison():
@@ -3308,13 +3310,24 @@ if st.session_state.get("comparison_ready"):
 
     st.markdown(
         """
-        <div class="comparison-title-card">
+        <div class="comparison-title-card" id="comparison-results">
             <div class="comparison-title-kicker">SAGE COMPARISON</div>
             <div class="comparison-title-heading">Selected Research Runs</div>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
+    if st.session_state.pop("scroll_to_comparison_results", False):
+        components.html(
+            """
+            <script>
+                const target = window.parent.document.getElementById("comparison-results");
+                if (target) { target.scrollIntoView({behavior: "smooth", block: "start"}); }
+            </script>
+            """,
+            height=0,
+        )
 
     comparison_analysis = comparison_data.get("analysis", {})
 
