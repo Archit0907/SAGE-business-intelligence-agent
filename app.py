@@ -2314,14 +2314,17 @@ def _copilot_answer_references(answer, source_map, evidence_map):
             if source_id in source_map
         )
 
-    def keep_valid_citation(match):
-        citation = match.group(1)
-        return match.group(0) if citation in evidence_map or citation in source_map else ""
-
-    answer = re.sub(r"\[(evidence-\d{4,}|source-\d{4,})\]", keep_valid_citation, answer)
+    # Evidence/source IDs are internal identifiers, not something a reader should see inline.
+    # Validity (computed above) still drives which sources are surfaced as clean, clickable
+    # references via render_copilot_sources; the bracketed citation markers themselves are
+    # always removed from the displayed prose.
+    answer = re.sub(r"\[(?:evidence-\d{4,}|source-\d{4,})\]", "", answer)
     answer = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", answer)
     answer = re.sub(r"(?:https?://|ftp://|www\.)\S+", "", answer, flags=re.IGNORECASE).strip()
     answer = re.sub(r"(?<![\w@])(?:[a-z0-9-]+\.)+[a-z]{2,}(?:/[^\s]*)?", "", answer, flags=re.IGNORECASE)
+    answer = re.sub(r"[ \t]+", " ", answer)
+    answer = re.sub(r"[ \t]+([.,;:!?])", r"\1", answer)
+    answer = re.sub(r"\n{3,}", "\n\n", answer).strip()
     return answer, sorted(valid_evidence_ids), sorted(valid_sources)
 
 
@@ -2385,7 +2388,8 @@ def render_research_copilot(brief, report):
                         evidence_ids, source_ids = [], []
                 st.markdown(answer)
                 if evidence_ids:
-                    st.caption("Evidence cited: " + ", ".join(f"[{item_id}]" for item_id in evidence_ids))
+                    record_word = "record" if len(evidence_ids) == 1 else "records"
+                    st.caption(f"Grounded in {len(evidence_ids)} evidence {record_word} from this report.")
                 render_copilot_sources(
                     source_ids, source_map, f"sage_copilot_answer_{report_key}_{len(messages)}"
                 )
