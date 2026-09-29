@@ -5,3 +5,4 @@ __pycache__/
 research_report.txt
 research_report.md
 sage_research_data.json
+research_history/*.json
