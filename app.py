@@ -1123,7 +1123,7 @@ def render_live_card(stage, message, telemetry=None):
     """
 
     return f"""
-    <div class="sg-live">
+    <div class="sg-live" id="research-progress">
       <div class="sg-orb a"></div><div class="sg-orb b"></div>
       <div class="sg-live-top">
         <span class="sg-chip-dark">SAGE INTELLIGENCE ENGINE</span>
@@ -3168,6 +3168,27 @@ if start:
         st.session_state.pop("sage_copilot_messages", None)
 
         live_slot = st.empty()
+        components.html(
+            """
+            <script>
+                (function () {
+                    const doc = window.parent.document;
+                    let attempts = 0;
+                    const tryScroll = () => {
+                        const target = doc.getElementById("research-progress");
+                        if (target) {
+                            target.scrollIntoView({behavior: "smooth", block: "start"});
+                            return;
+                        }
+                        attempts += 1;
+                        if (attempts < 60) { setTimeout(tryScroll, 50); }
+                    };
+                    tryScroll();
+                })();
+            </script>
+            """,
+            height=0,
+        )
         result, error, log_tail = run_sage_research(problem_clean, market_clean, decision_clean, live_slot)
         live_slot.empty()
 
