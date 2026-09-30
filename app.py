@@ -906,26 +906,29 @@ def extract_sources(value):
 # RESEARCH HISTORY
 # ============================================================
 
-HISTORY_DIR = BASE_DIR / "research_history"
+def _session_history():
+    """Research runs saved during this browser session only — never written to disk,
+    never shared with other users or sessions of the deployed app."""
+    return st.session_state.setdefault("sage_history", {})
 
 
 def save_research_history(brief, research_data):
-    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    history = _session_history()
 
     timestamp = time.strftime("%Y%m%d_%H%M%S")
-    history_record = {
+    record_id = f"research_{timestamp}"
+    suffix = 1
+    while record_id in history:
+        suffix += 1
+        record_id = f"research_{timestamp}_{suffix}"
+
+    history[record_id] = {
         "saved_at": time.strftime("%Y-%m-%d %H:%M:%S"),
         "brief": brief,
         "research": research_data,
     }
 
-    history_path = HISTORY_DIR / f"research_{timestamp}.json"
-    history_path.write_text(
-        json.dumps(history_record, indent=2, ensure_ascii=False, default=str),
-        encoding="utf-8",
-    )
-
-    return history_path
+    return record_id
 
 
 # MARKUP BUILDERS — components
@@ -2728,15 +2731,17 @@ else:
         start, business_problem, target_market, business_decision = render_research_brief()
 
 
-def load_research_history(history_path):
-    record = json.loads(history_path.read_text(encoding="utf-8"))
+def load_research_history(record_id):
+    record = _session_history().get(record_id)
+    if not record:
+        return
 
     st.session_state["sage_data"] = record.get("research", {})
     st.session_state["sage_brief"] = record.get("brief", {})
 
 
-def load_history_record(history_path):
-    return json.loads(history_path.read_text(encoding="utf-8"))
+def load_history_record(record_id):
+    return _session_history().get(record_id, {})
 
 
 def build_research_comparison(record_a, record_b):
@@ -2970,17 +2975,16 @@ Research Sections:
 # ============================================================
 
 def render_research_history():
-    history_files = sorted(
-        HISTORY_DIR.glob("research_*.json"),
-        key=lambda path: path.stat().st_mtime,
+    history_items = sorted(
+        _session_history().items(),
+        key=lambda item: item[0],
         reverse=True,
     )
 
     cards = []
 
-    for index, history_path in enumerate(history_files[:6]):
+    for index, (record_id, record) in enumerate(history_items[:6]):
         try:
-            record = json.loads(history_path.read_text(encoding="utf-8"))
             brief = record.get("brief", {})
             saved_at = record.get("saved_at", "Unknown date")
             problem = to_text(brief.get("problem", "Untitled research"))
@@ -2991,7 +2995,7 @@ def render_research_history():
 
             cards.append(
                 f"""
-                <a class="sg-lib-card" href="?history={esc(history_path.name)}">
+                <a class="sg-lib-card" href="?history={esc(record_id)}">
                     <div class="sg-lib-top">
                         <span class="sg-lib-index">DOSSIER {index + 1:02d}</span>
                         <span class="sg-lib-date">{esc(saved_at)}</span>
@@ -3032,25 +3036,21 @@ def render_research_history():
 # ============================================================
 
 def render_comparison_controls():
-    history_files = sorted(
-        HISTORY_DIR.glob("research_*.json"),
-        key=lambda path: path.stat().st_mtime,
-        reverse=True,
-    )
+    history_ids = sorted(_session_history().keys(), reverse=True)
 
-    if len(history_files) < 2:
+    if len(history_ids) < 2:
         return
 
     labels = {}
-    for history_path in history_files:
+    for record_id in history_ids:
         try:
-            record = load_history_record(history_path)
+            record = load_history_record(record_id)
             brief = record.get("brief", {})
             problem = to_text(brief.get("problem", "Untitled research"))
             saved_at = record.get("saved_at", "Unknown date")
-            labels[history_path.name] = f"{saved_at} · {problem}"
+            labels[record_id] = f"{saved_at} · {problem}"
         except Exception:
-            labels[history_path.name] = history_path.name
+            labels[record_id] = record_id
 
     options = list(labels.keys())
 
@@ -3102,8 +3102,8 @@ def render_comparison_controls():
         compare_clicked = st.button("Compare Selected Runs", key="compare_research")
 
     if compare_clicked:
-        record_a = load_history_record(HISTORY_DIR / run_a)
-        record_b = load_history_record(HISTORY_DIR / run_b)
+        record_a = load_history_record(run_a)
+        record_b = load_history_record(run_b)
 
         comparison_data = build_research_comparison(
             record_a,
@@ -3121,13 +3121,7 @@ def render_comparison_controls():
 
 
 def render_research_comparison():
-    history_files = sorted(
-        HISTORY_DIR.glob("research_*.json"),
-        key=lambda path: path.stat().st_mtime,
-        reverse=True,
-    )
-
-    if len(history_files) < 2:
+    if len(_session_history()) < 2:
         return ""
 
     return """
@@ -3465,18 +3459,10 @@ def render_comparison_results_view():
 # REPORT
 # ============================================================
 
-history_name = st.query_params.get("history")
+history_id = st.query_params.get("history")
 
-if history_name:
-    safe_history_name = Path(history_name).name
-    history_path = HISTORY_DIR / safe_history_name
-
-    if (
-        safe_history_name.startswith("research_")
-        and safe_history_name.endswith(".json")
-        and history_path.exists()
-    ):
-        load_research_history(history_path)
+if history_id and history_id in _session_history():
+    load_research_history(history_id)
 
 data = st.session_state.get("sage_data")
 
