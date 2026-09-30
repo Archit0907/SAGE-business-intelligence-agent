@@ -1031,24 +1031,27 @@ def render_hero():
     """
 
 
-def render_topbar():
+def render_topbar(active_view=None):
     report_mode = bool(st.session_state.get("sage_data")) or bool(st.query_params.get("history"))
-    report_links = '<a href="#report-navigation">Research report</a>' if report_mode else ""
-    return """
+    report_links = '<a href="#report-navigation">Research report</a>' if report_mode and not active_view else ""
+    # When already on the default workspace, "New brief" just scrolls to the brief section;
+    # from the History/Compare views it needs to actually navigate back to that workspace.
+    new_brief_href = "?" if active_view else "#research-brief"
+    return f"""
     <div class="sg-topbar" id="top">
       <a class="sg-topbrand" href="#top" aria-label="SAGE home">
         <span class="sg-brandmark"><span>S</span></span>
         <span class="sg-brandlock">SAGE<span class="sg-branddesc">Strategic intelligence</span></span>
       </a>
       <nav class="sg-topnav" aria-label="SAGE workspace navigation">
-        <a href="#research-brief">New brief</a>
-        <a href="#history-library">History</a>
-        <a href="#comparison-workspace">Compare</a>
+        <a href="{new_brief_href}">New brief</a>
+        {report_links}
+        <a href="?view=history">History</a>
+        <a href="?view=compare">Compare</a>
       </nav>
       <div class="sg-topmeta"><span class="sg-topdot"></span>Intelligence workspace</div>
     </div>
-    """.replace('<a href="#research-brief">New brief</a>',
-               '<a href="#research-brief">New brief</a>' + report_links)
+    """
 
 
 def render_live_card(stage, message, telemetry=None):
@@ -2629,10 +2632,14 @@ def run_sage_research(problem, market, decision, live_slot):
 # PAGE: STYLES + HERO
 # ============================================================
 
+active_view = st.query_params.get("view")
+if active_view not in ("history", "compare"):
+    active_view = None
+
 show(SAGE_CSS)
-show(render_topbar())
+show(render_topbar(active_view))
 hero_slot = st.empty()
-if not st.session_state.get("sage_data") and not st.query_params.get("history"):
+if active_view is None and not st.session_state.get("sage_data") and not st.query_params.get("history"):
     with hero_slot.container():
         show(render_hero())
 
@@ -2699,22 +2706,26 @@ def render_research_brief(compact=False):
     return start, business_problem, target_market, business_decision
 
 
-existing_report = bool(st.session_state.get("sage_data")) or bool(st.query_params.get("history"))
-show('<div id="research-brief" class="sg-brief-shell"></div>')
-if existing_report:
-    if st.button("Create a new research brief", key="new_brief_reset"):
-        if "history" in st.query_params:
-            del st.query_params["history"]
-        st.session_state.pop("sage_data", None)
-        st.session_state.pop("sage_brief", None)
-        st.session_state.pop("sage_copilot_report_key", None)
-        st.session_state.pop("sage_copilot_messages", None)
-        st.session_state.pop("comparison_ready", None)
-        st.session_state.pop("comparison_data", None)
-        st.rerun()
+if active_view is not None:
+    # History / Compare are dedicated workspace views — the brief console is not part of them.
     start, business_problem, target_market, business_decision = False, "", "", ""
 else:
-    start, business_problem, target_market, business_decision = render_research_brief()
+    existing_report = bool(st.session_state.get("sage_data")) or bool(st.query_params.get("history"))
+    show('<div id="research-brief" class="sg-brief-shell"></div>')
+    if existing_report:
+        if st.button("Create a new research brief", key="new_brief_reset"):
+            if "history" in st.query_params:
+                del st.query_params["history"]
+            st.session_state.pop("sage_data", None)
+            st.session_state.pop("sage_brief", None)
+            st.session_state.pop("sage_copilot_report_key", None)
+            st.session_state.pop("sage_copilot_messages", None)
+            st.session_state.pop("comparison_ready", None)
+            st.session_state.pop("comparison_data", None)
+            st.rerun()
+        start, business_problem, target_market, business_decision = False, "", "", ""
+    else:
+        start, business_problem, target_market, business_decision = render_research_brief()
 
 
 def load_research_history(history_path):
@@ -3180,39 +3191,6 @@ if start:
 
 
 # ============================================================
-# REPORT
-# ============================================================
-
-history_name = st.query_params.get("history")
-
-if history_name:
-    safe_history_name = Path(history_name).name
-    history_path = HISTORY_DIR / safe_history_name
-
-    if (
-        safe_history_name.startswith("research_")
-        and safe_history_name.endswith(".json")
-        and history_path.exists()
-    ):
-        load_research_history(history_path)
-
-data = st.session_state.get("sage_data")
-
-if not data and st.session_state.get("comparison_ready"):
-    show(render_research_history())
-    show(render_research_comparison())
-    render_comparison_controls()
-
-if not data and not st.session_state.get("comparison_ready"):
-    show(render_research_history())
-    show(render_research_comparison())
-    render_comparison_controls()
-
-    if not st.session_state.get("comparison_ready"):
-        show(render_footer())
-        st.stop()
-
-# ============================================================
 # COMPARISON SNAPSHOT
 # ============================================================
 
@@ -3316,7 +3294,9 @@ def render_comparison_dimension_cards(comparison_analysis):
 # COMPARISON RESULTS
 # ============================================================
 
-if st.session_state.get("comparison_ready"):
+def render_comparison_results_view():
+    if not st.session_state.get("comparison_ready"):
+        return
     comparison_data = st.session_state.get("comparison_data", {})
     run_a = comparison_data.get("run_a", {})
     run_b = comparison_data.get("run_b", {})
@@ -3480,7 +3460,39 @@ if st.session_state.get("comparison_ready"):
             )
         )
 
-if st.session_state.get("comparison_ready") and not data:
+
+# ============================================================
+# REPORT
+# ============================================================
+
+history_name = st.query_params.get("history")
+
+if history_name:
+    safe_history_name = Path(history_name).name
+    history_path = HISTORY_DIR / safe_history_name
+
+    if (
+        safe_history_name.startswith("research_")
+        and safe_history_name.endswith(".json")
+        and history_path.exists()
+    ):
+        load_research_history(history_path)
+
+data = st.session_state.get("sage_data")
+
+if active_view == "history":
+    show(render_research_history())
+    show(render_footer())
+    st.stop()
+
+if active_view == "compare":
+    show(render_research_comparison())
+    render_comparison_controls()
+    render_comparison_results_view()
+    show(render_footer())
+    st.stop()
+
+if not data:
     show(render_footer())
     st.stop()
 
@@ -3579,10 +3591,5 @@ with dl_pdf:
 # ============================================================
 # FOOTER
 # ============================================================
-
-show(render_research_history())
-
-show(render_research_comparison())
-render_comparison_controls()
 
 show(render_footer())
