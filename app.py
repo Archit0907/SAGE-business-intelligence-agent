@@ -3122,7 +3122,16 @@ def render_comparison_controls():
 
 def render_research_comparison():
     if len(_session_history()) < 2:
-        return ""
+        return """
+        <div class="sc-wrap" id="comparison-workspace">
+            <div class="sc-kicker">SAGE ANALYSIS</div>
+            <div class="sc-title">Compare Research</div>
+            <div class="sc-subtitle">
+                Select two saved research runs to compare their findings and strategic insights.
+            </div>
+            <div class="sh-empty">Not enough saved research yet. Save at least two research runs in this session to compare them here.</div>
+        </div>
+        """
 
     return """
     <div class="sc-wrap" id="comparison-workspace">
