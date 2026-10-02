@@ -529,13 +529,22 @@ div[data-testid="stVerticalBlock"]:has(>div[data-testid="stElementContainer"] .s
 .sg-stackcol{display:flex;flex-direction:column;gap:10px;margin-top:6px}
 [data-testid="stChatMessage"]{margin:8px 0;padding:16px 18px;border:1px solid var(--sg-line);border-radius:10px;background:var(--sg-surface);box-shadow:var(--sg-shadow-sm)}
 .stChatMessage p{color:#d3dae3;line-height:1.7}
-[data-testid="stChatInput"] textarea{background:#182539;color:#ece1c8}
-[data-testid="stChatInput"]{border-color:var(--sg-line)!important;border-radius:10px!important}
-.stChatInput button{border-radius:8px}
-div[data-testid="stVerticalBlock"]:has(>div[data-testid="stElementContainer"] [data-testid="stChatInput"]){border:1px solid var(--sg-line)!important;border-radius:14px!important;
- background:linear-gradient(155deg,rgba(var(--sg-indigo-rgb),.08),rgba(17,24,31,.9))!important;box-shadow:var(--sg-shadow-md)!important;padding:6px!important}
 .sg-copilot-heading{color:#f4ecd9;font-family:var(--sg-serif);font-size:22px;font-weight:440}
-.sg-copilot-kicker{display:block;margin-bottom:6px;color:var(--sg-champagne);font-family:var(--sg-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase}
+.sg-copilot-kicker{display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;padding:5px 12px;border:1px solid rgba(var(--sg-champagne-rgb),.5);border-radius:20px;background:rgba(var(--sg-champagne-rgb),.1);color:var(--sg-champagne);font-family:var(--sg-mono);font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+.sg-copilot-kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sg-champagne);box-shadow:0 0 0 3px rgba(var(--sg-champagne-rgb),.2)}
+.sg-copilot-desc{margin:8px 0 4px;max-width:640px;color:#9aa7bd;font-size:13px;line-height:1.6}
+.sg-copilot-try{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 4px}
+.sg-copilot-try-label{margin-right:2px;color:#7c889c;font-family:var(--sg-mono);font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.sg-copilot-chip{padding:6px 13px;border:1px solid var(--sg-line);border-radius:16px;background:rgba(255,255,255,.02);color:#aab6c9;font-size:11.5px}
+/* The Copilot's question box is a st.form (not st.chat_input), scoped to this marker so
+   it never affects any other text input/form in the app. */
+div[data-testid="stForm"]:has(.sg-copilot-input-mark){border:none!important;padding:0!important;background:none!important;box-shadow:none!important}
+div[data-testid="stForm"]:has(.sg-copilot-input-mark) [data-testid="stTextInput"] input{background:#182539;border-color:var(--sg-line)!important;color:#ece1c8}
+div[data-testid="stForm"]:has(.sg-copilot-input-mark) [data-testid="stFormSubmitButton"] button{min-height:40px;padding:0 22px;border:1px solid rgba(var(--sg-champagne-rgb),.4)!important;
+ border-radius:8px!important;background:rgba(var(--sg-champagne-rgb),.1)!important;color:var(--sg-champagne)!important;font-family:var(--sg-mono);font-size:10.5px;
+ letter-spacing:.08em;text-transform:uppercase;box-shadow:none!important}
+div[data-testid="stForm"]:has(.sg-copilot-input-mark) [data-testid="stFormSubmitButton"] button:hover{background:rgba(var(--sg-champagne-rgb),.18)!important;border-color:rgba(var(--sg-champagne-rgb),.6)!important}
+.sg-copilot-input-mark{display:none}
 [data-testid="stRadio"] [role="radiogroup"]{gap:4px;padding:4px;border:1px solid var(--sg-line);border-radius:10px;background:var(--sg-surface-2)}
 [data-testid="stRadio"] [role="radio"]{padding:8px 14px;border-radius:7px;color:#9da9b8;font-size:12px;transition:background .16s ease,color .16s ease}
 [data-testid="stRadio"] [role="radio"]:has([aria-checked="true"]){background:linear-gradient(155deg,rgba(var(--sg-indigo-rgb),.3),rgba(var(--sg-indigo-rgb),.14));color:#f4ecd9;box-shadow:0 0 0 1px rgba(var(--sg-indigo-rgb),.35)}
@@ -2377,24 +2386,35 @@ def render_research_copilot(brief, report):
     messages = st.session_state.setdefault("sage_copilot_messages", [])
 
     with st.container(border=True):
-        st.markdown('<span class="sg-copilot-kicker">REPORT-GROUNDED ASSISTANCE</span><div class="sg-copilot-heading">Ask SAGE about this research</div>', unsafe_allow_html=True)
-        st.caption("Answers are grounded in this report. SAGE will say when the research lacks the information.")
-        if len(messages) > 12:
-            st.caption(f"Showing the latest 12 messages of {len(messages)} in this report conversation.")
-        for index, message in enumerate(messages[-12:]):
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"])
-                if message["role"] == "assistant":
-                    render_copilot_sources(
-                        message.get("source_ids", []), source_map,
-                        f"sage_copilot_history_{report_key}_{index}",
-                    )
-
-        question = st.chat_input(
-            "Ask about findings, evidence, sources, recommendations, or risks…",
-            key=f"sage_copilot_input_{report_key}",
+        st.markdown(
+            '<span class="sg-copilot-kicker">SAGE COPILOT</span>'
+            '<div class="sg-copilot-heading">Ask SAGE about this research</div>'
+            '<div class="sg-copilot-desc">Ask questions about findings, evidence, recommendations, '
+            'or risks. Answers are grounded in this report.</div>',
+            unsafe_allow_html=True,
         )
-        if question:
+        # A plain st.form (not st.chat_input) is used deliberately: st.chat_input is
+        # auto-relocated by Streamlit to a separate floating panel when nested inside
+        # st.tabs/st.container, which is what produced the empty "second Copilot panel"
+        # below the answer. st.form renders exactly where it's placed, every time.
+        with st.form(key=f"sage_copilot_form_{report_key}", clear_on_submit=True, border=False):
+            show('<div class="sg-copilot-input-mark"></div>')
+            input_col, button_col = st.columns([5, 1])
+            with input_col:
+                question = st.text_input(
+                    "Ask SAGE",
+                    placeholder="Ask about findings, evidence, sources, recommendations, or risks…",
+                    label_visibility="collapsed",
+                    key=f"sage_copilot_text_{report_key}",
+                )
+            with button_col:
+                submitted = st.form_submit_button("Ask SAGE")
+
+        # Only the latest question/answer pair is ever displayed (not a running chat
+        # history), though the full `messages` list is still kept in session_state so
+        # answer_research_question continues to receive prior-turn context unchanged.
+        if submitted and question and question.strip():
+            question = question.strip()
             messages.append({"role": "user", "content": question})
             with st.chat_message("user"):
                 st.markdown(question)
@@ -2421,6 +2441,35 @@ def render_research_copilot(brief, report):
                 "evidence_ids": evidence_ids,
                 "source_ids": source_ids,
             })
+        elif messages:
+            last_assistant = messages[-1] if messages[-1]["role"] == "assistant" else None
+            last_user = messages[-2] if last_assistant and len(messages) >= 2 else (
+                messages[-1] if messages[-1]["role"] == "user" else None
+            )
+            if last_user:
+                with st.chat_message("user"):
+                    st.markdown(last_user["content"])
+            if last_assistant:
+                with st.chat_message("assistant"):
+                    st.markdown(last_assistant["content"])
+                    evidence_ids = last_assistant.get("evidence_ids", [])
+                    if evidence_ids:
+                        record_word = "record" if len(evidence_ids) == 1 else "records"
+                        st.caption(f"Grounded in {len(evidence_ids)} evidence {record_word} from this report.")
+                    render_copilot_sources(
+                        last_assistant.get("source_ids", []), source_map,
+                        f"sage_copilot_latest_{report_key}",
+                    )
+        else:
+            st.markdown(
+                '<div class="sg-copilot-try">'
+                '<span class="sg-copilot-try-label">Try asking</span>'
+                '<span class="sg-copilot-chip">What are the biggest risks?</span>'
+                '<span class="sg-copilot-chip">What evidence supports the recommendation?</span>'
+                '<span class="sg-copilot-chip">What information is still missing?</span>'
+                '</div>',
+                unsafe_allow_html=True,
+            )
 
 
 @st.cache_data(show_spinner=False)
