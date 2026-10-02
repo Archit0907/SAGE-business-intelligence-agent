@@ -10,6 +10,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import streamlit as st
+import streamlit.components.v1 as components
 import plotly.graph_objects as go
 from openai import OpenAI
 from evidence_intelligence import (
@@ -905,26 +906,29 @@ def extract_sources(value):
 # RESEARCH HISTORY
 # ============================================================
 
-HISTORY_DIR = BASE_DIR / "research_history"
+def _session_history():
+    """Research runs saved during this browser session only — never written to disk,
+    never shared with other users or sessions of the deployed app."""
+    return st.session_state.setdefault("sage_history", {})
 
 
 def save_research_history(brief, research_data):
-    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    history = _session_history()
 
     timestamp = time.strftime("%Y%m%d_%H%M%S")
-    history_record = {
+    record_id = f"research_{timestamp}"
+    suffix = 1
+    while record_id in history:
+        suffix += 1
+        record_id = f"research_{timestamp}_{suffix}"
+
+    history[record_id] = {
         "saved_at": time.strftime("%Y-%m-%d %H:%M:%S"),
         "brief": brief,
         "research": research_data,
     }
 
-    history_path = HISTORY_DIR / f"research_{timestamp}.json"
-    history_path.write_text(
-        json.dumps(history_record, indent=2, ensure_ascii=False, default=str),
-        encoding="utf-8",
-    )
-
-    return history_path
+    return record_id
 
 
 # MARKUP BUILDERS — components
@@ -1030,24 +1034,27 @@ def render_hero():
     """
 
 
-def render_topbar():
+def render_topbar(active_view=None):
     report_mode = bool(st.session_state.get("sage_data")) or bool(st.query_params.get("history"))
-    report_links = '<a href="#report-navigation">Research report</a>' if report_mode else ""
-    return """
+    report_links = '<a href="#report-navigation">Research report</a>' if report_mode and not active_view else ""
+    # When already on the default workspace, "New brief" just scrolls to the brief section;
+    # from the History/Compare views it needs to actually navigate back to that workspace.
+    new_brief_href = "?" if active_view else "#research-brief"
+    return f"""
     <div class="sg-topbar" id="top">
       <a class="sg-topbrand" href="#top" aria-label="SAGE home">
         <span class="sg-brandmark"><span>S</span></span>
         <span class="sg-brandlock">SAGE<span class="sg-branddesc">Strategic intelligence</span></span>
       </a>
       <nav class="sg-topnav" aria-label="SAGE workspace navigation">
-        <a href="#research-brief">New brief</a>
-        <a href="#history-library">History</a>
-        <a href="#comparison-workspace">Compare</a>
+        <a href="{new_brief_href}">New brief</a>
+        {report_links}
+        <a href="?view=history">History</a>
+        <a href="?view=compare">Compare</a>
       </nav>
       <div class="sg-topmeta"><span class="sg-topdot"></span>Intelligence workspace</div>
     </div>
-    """.replace('<a href="#research-brief">New brief</a>',
-               '<a href="#research-brief">New brief</a>' + report_links)
+    """
 
 
 def render_live_card(stage, message, telemetry=None):
@@ -1116,7 +1123,7 @@ def render_live_card(stage, message, telemetry=None):
     """
 
     return f"""
-    <div class="sg-live">
+    <div class="sg-live" id="research-progress">
       <div class="sg-orb a"></div><div class="sg-orb b"></div>
       <div class="sg-live-top">
         <span class="sg-chip-dark">SAGE INTELLIGENCE ENGINE</span>
@@ -2313,14 +2320,17 @@ def _copilot_answer_references(answer, source_map, evidence_map):
             if source_id in source_map
         )
 
-    def keep_valid_citation(match):
-        citation = match.group(1)
-        return match.group(0) if citation in evidence_map or citation in source_map else ""
-
-    answer = re.sub(r"\[(evidence-\d{4,}|source-\d{4,})\]", keep_valid_citation, answer)
+    # Evidence/source IDs are internal identifiers, not something a reader should see inline.
+    # Validity (computed above) still drives which sources are surfaced as clean, clickable
+    # references via render_copilot_sources; the bracketed citation markers themselves are
+    # always removed from the displayed prose.
+    answer = re.sub(r"\[(?:evidence-\d{4,}|source-\d{4,})\]", "", answer)
     answer = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", answer)
     answer = re.sub(r"(?:https?://|ftp://|www\.)\S+", "", answer, flags=re.IGNORECASE).strip()
     answer = re.sub(r"(?<![\w@])(?:[a-z0-9-]+\.)+[a-z]{2,}(?:/[^\s]*)?", "", answer, flags=re.IGNORECASE)
+    answer = re.sub(r"[ \t]+", " ", answer)
+    answer = re.sub(r"[ \t]+([.,;:!?])", r"\1", answer)
+    answer = re.sub(r"\n{3,}", "\n\n", answer).strip()
     return answer, sorted(valid_evidence_ids), sorted(valid_sources)
 
 
@@ -2384,7 +2394,8 @@ def render_research_copilot(brief, report):
                         evidence_ids, source_ids = [], []
                 st.markdown(answer)
                 if evidence_ids:
-                    st.caption("Evidence cited: " + ", ".join(f"[{item_id}]" for item_id in evidence_ids))
+                    record_word = "record" if len(evidence_ids) == 1 else "records"
+                    st.caption(f"Grounded in {len(evidence_ids)} evidence {record_word} from this report.")
                 render_copilot_sources(
                     source_ids, source_map, f"sage_copilot_answer_{report_key}_{len(messages)}"
                 )
@@ -2624,10 +2635,14 @@ def run_sage_research(problem, market, decision, live_slot):
 # PAGE: STYLES + HERO
 # ============================================================
 
+active_view = st.query_params.get("view")
+if active_view not in ("history", "compare"):
+    active_view = None
+
 show(SAGE_CSS)
-show(render_topbar())
+show(render_topbar(active_view))
 hero_slot = st.empty()
-if not st.session_state.get("sage_data") and not st.query_params.get("history"):
+if active_view is None and not st.session_state.get("sage_data") and not st.query_params.get("history"):
     with hero_slot.container():
         show(render_hero())
 
@@ -2694,24 +2709,39 @@ def render_research_brief(compact=False):
     return start, business_problem, target_market, business_decision
 
 
-existing_report = bool(st.session_state.get("sage_data")) or bool(st.query_params.get("history"))
-show('<div id="research-brief" class="sg-brief-shell"></div>')
-if existing_report:
-    with st.expander("Create a new research brief", expanded=False):
-        start, business_problem, target_market, business_decision = render_research_brief(compact=True)
+if active_view is not None:
+    # History / Compare are dedicated workspace views — the brief console is not part of them.
+    start, business_problem, target_market, business_decision = False, "", "", ""
 else:
-    start, business_problem, target_market, business_decision = render_research_brief()
+    existing_report = bool(st.session_state.get("sage_data")) or bool(st.query_params.get("history"))
+    show('<div id="research-brief" class="sg-brief-shell"></div>')
+    if existing_report:
+        if st.button("Create a new research brief", key="new_brief_reset"):
+            if "history" in st.query_params:
+                del st.query_params["history"]
+            st.session_state.pop("sage_data", None)
+            st.session_state.pop("sage_brief", None)
+            st.session_state.pop("sage_copilot_report_key", None)
+            st.session_state.pop("sage_copilot_messages", None)
+            st.session_state.pop("comparison_ready", None)
+            st.session_state.pop("comparison_data", None)
+            st.rerun()
+        start, business_problem, target_market, business_decision = False, "", "", ""
+    else:
+        start, business_problem, target_market, business_decision = render_research_brief()
 
 
-def load_research_history(history_path):
-    record = json.loads(history_path.read_text(encoding="utf-8"))
+def load_research_history(record_id):
+    record = _session_history().get(record_id)
+    if not record:
+        return
 
     st.session_state["sage_data"] = record.get("research", {})
     st.session_state["sage_brief"] = record.get("brief", {})
 
 
-def load_history_record(history_path):
-    return json.loads(history_path.read_text(encoding="utf-8"))
+def load_history_record(record_id):
+    return _session_history().get(record_id, {})
 
 
 def build_research_comparison(record_a, record_b):
@@ -2945,17 +2975,16 @@ Research Sections:
 # ============================================================
 
 def render_research_history():
-    history_files = sorted(
-        HISTORY_DIR.glob("research_*.json"),
-        key=lambda path: path.stat().st_mtime,
+    history_items = sorted(
+        _session_history().items(),
+        key=lambda item: item[0],
         reverse=True,
     )
 
     cards = []
 
-    for index, history_path in enumerate(history_files[:6]):
+    for index, (record_id, record) in enumerate(history_items[:6]):
         try:
-            record = json.loads(history_path.read_text(encoding="utf-8"))
             brief = record.get("brief", {})
             saved_at = record.get("saved_at", "Unknown date")
             problem = to_text(brief.get("problem", "Untitled research"))
@@ -2966,7 +2995,7 @@ def render_research_history():
 
             cards.append(
                 f"""
-                <a class="sg-lib-card" href="?history={esc(history_path.name)}">
+                <a class="sg-lib-card" href="?history={esc(record_id)}">
                     <div class="sg-lib-top">
                         <span class="sg-lib-index">DOSSIER {index + 1:02d}</span>
                         <span class="sg-lib-date">{esc(saved_at)}</span>
@@ -3007,25 +3036,21 @@ def render_research_history():
 # ============================================================
 
 def render_comparison_controls():
-    history_files = sorted(
-        HISTORY_DIR.glob("research_*.json"),
-        key=lambda path: path.stat().st_mtime,
-        reverse=True,
-    )
+    history_ids = sorted(_session_history().keys(), reverse=True)
 
-    if len(history_files) < 2:
+    if len(history_ids) < 2:
         return
 
     labels = {}
-    for history_path in history_files:
+    for record_id in history_ids:
         try:
-            record = load_history_record(history_path)
+            record = load_history_record(record_id)
             brief = record.get("brief", {})
             problem = to_text(brief.get("problem", "Untitled research"))
             saved_at = record.get("saved_at", "Unknown date")
-            labels[history_path.name] = f"{saved_at} · {problem}"
+            labels[record_id] = f"{saved_at} · {problem}"
         except Exception:
-            labels[history_path.name] = history_path.name
+            labels[record_id] = record_id
 
     options = list(labels.keys())
 
@@ -3077,8 +3102,8 @@ def render_comparison_controls():
         compare_clicked = st.button("Compare Selected Runs", key="compare_research")
 
     if compare_clicked:
-        record_a = load_history_record(HISTORY_DIR / run_a)
-        record_b = load_history_record(HISTORY_DIR / run_b)
+        record_a = load_history_record(run_a)
+        record_b = load_history_record(run_b)
 
         comparison_data = build_research_comparison(
             record_a,
@@ -3092,17 +3117,21 @@ def render_comparison_controls():
 
         st.session_state["comparison_data"] = comparison_data
         st.session_state["comparison_ready"] = True
+        st.session_state["scroll_to_comparison_results"] = True
 
 
 def render_research_comparison():
-    history_files = sorted(
-        HISTORY_DIR.glob("research_*.json"),
-        key=lambda path: path.stat().st_mtime,
-        reverse=True,
-    )
-
-    if len(history_files) < 2:
-        return ""
+    if len(_session_history()) < 2:
+        return """
+        <div class="sc-wrap" id="comparison-workspace">
+            <div class="sc-kicker">SAGE ANALYSIS</div>
+            <div class="sc-title">Compare Research</div>
+            <div class="sc-subtitle">
+                Select two saved research runs to compare their findings and strategic insights.
+            </div>
+            <div class="sh-empty">Not enough saved research yet. Save at least two research runs in this session to compare them here.</div>
+        </div>
+        """
 
     return """
     <div class="sc-wrap" id="comparison-workspace">
@@ -3139,6 +3168,27 @@ if start:
         st.session_state.pop("sage_copilot_messages", None)
 
         live_slot = st.empty()
+        components.html(
+            """
+            <script>
+                (function () {
+                    const doc = window.parent.document;
+                    let attempts = 0;
+                    const tryScroll = () => {
+                        const target = doc.getElementById("research-progress");
+                        if (target) {
+                            target.scrollIntoView({behavior: "smooth", block: "start"});
+                            return;
+                        }
+                        attempts += 1;
+                        if (attempts < 60) { setTimeout(tryScroll, 50); }
+                    };
+                    tryScroll();
+                })();
+            </script>
+            """,
+            height=0,
+        )
         result, error, log_tail = run_sage_research(problem_clean, market_clean, decision_clean, live_slot)
         live_slot.empty()
 
@@ -3163,39 +3213,6 @@ if start:
             )
             hero_slot.empty()
 
-
-# ============================================================
-# REPORT
-# ============================================================
-
-history_name = st.query_params.get("history")
-
-if history_name:
-    safe_history_name = Path(history_name).name
-    history_path = HISTORY_DIR / safe_history_name
-
-    if (
-        safe_history_name.startswith("research_")
-        and safe_history_name.endswith(".json")
-        and history_path.exists()
-    ):
-        load_research_history(history_path)
-
-data = st.session_state.get("sage_data")
-
-if not data and st.session_state.get("comparison_ready"):
-    show(render_research_history())
-    show(render_research_comparison())
-    render_comparison_controls()
-
-if not data and not st.session_state.get("comparison_ready"):
-    show(render_research_history())
-    show(render_research_comparison())
-    render_comparison_controls()
-
-    if not st.session_state.get("comparison_ready"):
-        show(render_footer())
-        st.stop()
 
 # ============================================================
 # COMPARISON SNAPSHOT
@@ -3301,20 +3318,33 @@ def render_comparison_dimension_cards(comparison_analysis):
 # COMPARISON RESULTS
 # ============================================================
 
-if st.session_state.get("comparison_ready"):
+def render_comparison_results_view():
+    if not st.session_state.get("comparison_ready"):
+        return
     comparison_data = st.session_state.get("comparison_data", {})
     run_a = comparison_data.get("run_a", {})
     run_b = comparison_data.get("run_b", {})
 
     st.markdown(
         """
-        <div class="comparison-title-card">
+        <div class="comparison-title-card" id="comparison-results">
             <div class="comparison-title-kicker">SAGE COMPARISON</div>
             <div class="comparison-title-heading">Selected Research Runs</div>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
+    if st.session_state.pop("scroll_to_comparison_results", False):
+        components.html(
+            """
+            <script>
+                const target = window.parent.document.getElementById("comparison-results");
+                if (target) { target.scrollIntoView({behavior: "smooth", block: "start"}); }
+            </script>
+            """,
+            height=0,
+        )
 
     comparison_analysis = comparison_data.get("analysis", {})
 
@@ -3454,7 +3484,31 @@ if st.session_state.get("comparison_ready"):
             )
         )
 
-if st.session_state.get("comparison_ready") and not data:
+
+# ============================================================
+# REPORT
+# ============================================================
+
+history_id = st.query_params.get("history")
+
+if history_id and history_id in _session_history():
+    load_research_history(history_id)
+
+data = st.session_state.get("sage_data")
+
+if active_view == "history":
+    show(render_research_history())
+    show(render_footer())
+    st.stop()
+
+if active_view == "compare":
+    show(render_research_comparison())
+    render_comparison_controls()
+    render_comparison_results_view()
+    show(render_footer())
+    st.stop()
+
+if not data:
     show(render_footer())
     st.stop()
 
@@ -3553,10 +3607,5 @@ with dl_pdf:
 # ============================================================
 # FOOTER
 # ============================================================
-
-show(render_research_history())
-
-show(render_research_comparison())
-render_comparison_controls()
 
 show(render_footer())
