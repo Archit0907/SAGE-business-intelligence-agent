@@ -458,6 +458,9 @@ div[data-testid="stVerticalBlock"]:has(>div[data-testid="stElementContainer"] .s
  box-shadow:var(--sg-shadow-lg)!important}
 div[data-testid="stVerticalBlock"]:has(>div[data-testid="stElementContainer"] .sg-console-mark)::before{content:"";position:absolute;top:0;left:0;width:72px;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,var(--sg-champagne),transparent)}
 .sg-console-mark{display:none}
+/* Hidden proxy buttons used to turn a top-nav link click into a real Streamlit rerun */
+div[data-testid="stVerticalBlock"]:has(>div[data-testid="stElementContainer"] .sg-nav-proxy-mark){display:none!important}
+.sg-nav-proxy-mark{display:none}
 .sg-console-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 28px;padding-bottom:22px;border-bottom:1px solid var(--sg-line)}
 .sg-console-eyebrow{display:flex;align-items:center;gap:9px;color:var(--sg-champagne);font-family:var(--sg-mono);font-size:9.5px;font-weight:600;letter-spacing:.17em}
 .sg-console-title{margin:10px 0 0;color:#f4ecd9;font-family:var(--sg-serif);font-size:clamp(22px,2.4vw,29px);font-weight:440;line-height:1.2}
@@ -1090,7 +1093,20 @@ def render_live_card(stage, message, telemetry=None):
     question_count = telemetry.get("questions")
     source_count = telemetry.get("sources", 0)
     last_source = telemetry.get("last_source", "")
-    current_event = telemetry.get("current_event") or message
+
+    # The stage name shown in the telemetry line is derived from `stage` (the same
+    # value that drives the DONE/ACTIVE/QUEUED badges above) rather than from the
+    # last raw event text, so it can never lag behind the active stage.
+    if all_done:
+        current_stage_name = "Research complete"
+    else:
+        current_stage_name = STAGES[min(max(stage, 1), len(STAGES)) - 1][1]
+    event_detail = telemetry.get("current_event") or message
+    current_event = (
+        current_stage_name
+        if not event_detail or event_detail == current_stage_name
+        else f"{current_stage_name} — {event_detail}"
+    )
 
     stat_questions = (
         str(question_count)
@@ -2641,6 +2657,73 @@ if active_view not in ("history", "compare"):
 
 show(SAGE_CSS)
 show(render_topbar(active_view))
+
+# The top-nav "New brief" / "History" / "Compare" links only change the `?view=`
+# query string, but a plain <a href="?..."> click is a real browser navigation —
+# it reloads the page and starts a brand-new Streamlit session, wiping the
+# session-scoped research history. A real Streamlit rerun is required instead, and
+# the only reliable way to trigger one from a JS click handler is a genuine
+# Streamlit widget interaction (changing `st.query_params` from JS alone, e.g. via
+# pushState/popstate, does not send the websocket message Streamlit needs to rerun).
+# So: three invisible st.button()s do the actual navigation in Python, and a click
+# on the visible pill link just forwards the click to the matching hidden button.
+with st.container():
+    show('<div class="sg-nav-proxy-mark"></div>')
+    nav_home_clicked = st.button("sage-nav-home", key="sage_nav_home")
+    nav_history_clicked = st.button("sage-nav-history", key="sage_nav_history")
+    nav_compare_clicked = st.button("sage-nav-compare", key="sage_nav_compare")
+
+if nav_home_clicked:
+    if "view" in st.query_params:
+        del st.query_params["view"]
+    st.rerun()
+if nav_history_clicked:
+    st.query_params["view"] = "history"
+    st.rerun()
+if nav_compare_clicked:
+    st.query_params["view"] = "compare"
+    st.rerun()
+
+components.html(
+    """
+    <script>
+        (function () {
+            const doc = window.parent.document;
+            // Bind once, on document.body, which Streamlit never recreates. The topbar's
+            // anchors themselves ARE recreated on every rerun (st.html replaces their
+            // innerHTML), so binding directly on them needs re-attaching after every
+            // rerun and leaves a timing gap where a click falls through to the anchor's
+            // real href (a full page reload that wipes session-scoped history). Event
+            // delegation on body has no such gap: it keeps working across any number of
+            // topbar re-renders without ever needing to re-bind.
+            if (doc.body.dataset.sageNavBound) { return; }
+            doc.body.dataset.sageNavBound = "1";
+            const findNavButton = (label) => {
+                const buttons = doc.querySelectorAll("button");
+                for (const b of buttons) {
+                    if (b.textContent.trim() === label) { return b; }
+                }
+                return null;
+            };
+            doc.body.addEventListener("click", function (event) {
+                const link = event.target.closest('.sg-topbar a[href^="?"]');
+                if (!link) { return; }
+                event.preventDefault();
+                const href = link.getAttribute("href") || "";
+                let targetLabel = "sage-nav-home";
+                if (href.indexOf("view=history") !== -1) {
+                    targetLabel = "sage-nav-history";
+                } else if (href.indexOf("view=compare") !== -1) {
+                    targetLabel = "sage-nav-compare";
+                }
+                const btn = findNavButton(targetLabel);
+                if (btn) { btn.click(); }
+            });
+        })();
+    </script>
+    """,
+    height=0,
+)
 hero_slot = st.empty()
 if active_view is None and not st.session_state.get("sage_data") and not st.query_params.get("history"):
     with hero_slot.container():
